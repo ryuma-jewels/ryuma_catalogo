@@ -1,0 +1,3536 @@
+<!DOCTYPE html>
+<html lang="it" class="dark" data-ryuma-client="true"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>RYUMA jewels | Gioielli Artigianali</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font Gotico Semplice e Leggibile: Cinzel -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Cinzel"', 'Georgia', 'serif'],
+            serif: ['"Cinzel"', 'Georgia', 'serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Font gotico semplice e uniforme su ogni elemento */
+    *, *::before, *::after {
+      font-family: 'Cinzel', Georgia, serif !important;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #09090b;
+      color: #ffffff;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Forza il minuscolo per l'unità di misura cm e mm anche dentro elementi maiuscoli */
+    .unit-cm,
+    .unit-mm {
+      text-transform: none !important;
+    }
+
+    /* Visualizzazione foto intera rispettando il formato originale senza tagli */
+    .photo-natural {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 70vh;
+      object-fit: contain;
+      background-color: #09090b;
+    }
+
+    /* Riquadro foto per ciascuna metà del set (bracciale sopra, collana sotto) */
+    .set-half-photo {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 36vh;
+      object-fit: contain;
+      background-color: #09090b;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Input file invisibile sopra l'area di upload per aprire subito galleria/fotocamera */
+    .file-overlay {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+      z-index: 25;
+    }
+
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-panel {
+      animation: fadeSlide 0.18s ease-out forwards;
+    }
+  </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:"Cinzel", Georgia, serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.bottom-4{bottom:1rem}.left-1\/2{left:50%}.right-3{right:0.75rem}.top-0{top:0px}.bottom-2{bottom:0.5rem}.left-2{left:0.5rem}.right-2{right:0.5rem}.top-1\/2{top:50%}.z-30{z-index:30}.z-50{z-index:50}.z-\[100\]{z-index:100}.z-\[70\]{z-index:70}.z-\[75\]{z-index:75}.z-\[80\]{z-index:80}.z-\[85\]{z-index:85}.z-\[90\]{z-index:90}.z-\[95\]{z-index:95}.z-10{z-index:10}.mx-auto{margin-left:auto;margin-right:auto}.my-auto{margin-top:auto;margin-bottom:auto}.mb-1{margin-bottom:0.25rem}.mb-1\.5{margin-bottom:0.375rem}.ml-auto{margin-left:auto}.mt-0\.5{margin-top:0.125rem}.mt-1{margin-top:0.25rem}.mt-1\.5{margin-top:0.375rem}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-4{height:1rem}.h-8{height:2rem}.h-9{height:2.25rem}.max-h-\[52vh\]{max-height:52vh}.max-h-\[65vh\]{max-height:65vh}.max-h-\[82vh\]{max-height:82vh}.min-h-\[120px\]{min-height:120px}.min-h-\[28px\]{min-height:28px}.min-h-screen{min-height:100vh}.w-4{width:1rem}.w-8{width:2rem}.w-9{width:2.25rem}.w-full{width:100%}.min-w-0{min-width:0px}.max-w-2xl{max-width:42rem}.max-w-5xl{max-width:64rem}.max-w-lg{max-width:32rem}.max-w-md{max-width:28rem}.max-w-sm{max-width:24rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.translate-y-2{--tw-translate-y:0.5rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-translate-y-1\/2{--tw-translate-y:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.grid-cols-5{grid-template-columns:repeat(5, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-1\.5{gap:0.375rem}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.gap-3{gap:0.75rem}.gap-3\.5{gap:0.875rem}.gap-4{gap:1rem}.space-y-1\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.375rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.375rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-2\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.625rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.625rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-3\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.875rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.875rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.25rem * var(--tw-space-y-reverse))}.divide-y > :not([hidden]) ~ :not([hidden]){--tw-divide-y-reverse:0;border-top-width:calc(1px * calc(1 - var(--tw-divide-y-reverse)));border-bottom-width:calc(1px * var(--tw-divide-y-reverse))}.divide-zinc-800 > :not([hidden]) ~ :not([hidden]){--tw-divide-opacity:1;border-color:rgb(39 39 42 / var(--tw-divide-opacity, 1))}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.whitespace-nowrap{white-space:nowrap}.whitespace-pre-wrap{white-space:pre-wrap}.break-words{overflow-wrap:break-word}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-dashed{border-style:dashed}.border-amber-400\/60{border-color:rgb(251 191 36 / 0.6)}.border-amber-400\/70{border-color:rgb(251 191 36 / 0.7)}.border-emerald-400{--tw-border-opacity:1;border-color:rgb(52 211 153 / var(--tw-border-opacity, 1))}.border-red-500{--tw-border-opacity:1;border-color:rgb(239 68 68 / var(--tw-border-opacity, 1))}.border-sky-400{--tw-border-opacity:1;border-color:rgb(56 189 248 / var(--tw-border-opacity, 1))}.border-zinc-600{--tw-border-opacity:1;border-color:rgb(82 82 91 / var(--tw-border-opacity, 1))}.border-zinc-700{--tw-border-opacity:1;border-color:rgb(63 63 70 / var(--tw-border-opacity, 1))}.border-zinc-800{--tw-border-opacity:1;border-color:rgb(39 39 42 / var(--tw-border-opacity, 1))}.border-zinc-800\/70{border-color:rgb(39 39 42 / 0.7)}.border-zinc-800\/80{border-color:rgb(39 39 42 / 0.8)}.border-amber-400{--tw-border-opacity:1;border-color:rgb(251 191 36 / var(--tw-border-opacity, 1))}.bg-amber-400{--tw-bg-opacity:1;background-color:rgb(251 191 36 / var(--tw-bg-opacity, 1))}.bg-black\/85{background-color:rgb(0 0 0 / 0.85)}.bg-emerald-950\/80{background-color:rgb(2 44 34 / 0.8)}.bg-red-950\/80{background-color:rgb(69 10 10 / 0.8)}.bg-sky-950\/80{background-color:rgb(8 47 73 / 0.8)}.bg-zinc-900{--tw-bg-opacity:1;background-color:rgb(24 24 27 / var(--tw-bg-opacity, 1))}.bg-zinc-950{--tw-bg-opacity:1;background-color:rgb(9 9 11 / var(--tw-bg-opacity, 1))}.bg-zinc-950\/95{background-color:rgb(9 9 11 / 0.95)}.bg-zinc-950\/90{background-color:rgb(9 9 11 / 0.9)}.p-2\.5{padding:0.625rem}.p-3{padding:0.75rem}.p-3\.5{padding:0.875rem}.p-4{padding:1rem}.px-1{padding-left:0.25rem;padding-right:0.25rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-14{padding-top:3.5rem;padding-bottom:3.5rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.pb-2\.5{padding-bottom:0.625rem}.pb-3{padding-bottom:0.75rem}.pl-3{padding-left:0.75rem}.pr-11{padding-right:2.75rem}.pr-2{padding-right:0.5rem}.pr-9{padding-right:2.25rem}.pt-1{padding-top:0.25rem}.pt-2{padding-top:0.5rem}.pt-3{padding-top:0.75rem}.pt-3\.5{padding-top:0.875rem}.pt-4{padding-top:1rem}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-semibold{font-weight:600}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.leading-snug{line-height:1.375}.tracking-\[0\.12em\]{letter-spacing:0.12em}.text-amber-400{--tw-text-opacity:1;color:rgb(251 191 36 / var(--tw-text-opacity, 1))}.text-emerald-300{--tw-text-opacity:1;color:rgb(110 231 183 / var(--tw-text-opacity, 1))}.text-emerald-400{--tw-text-opacity:1;color:rgb(52 211 153 / var(--tw-text-opacity, 1))}.text-red-300{--tw-text-opacity:1;color:rgb(252 165 165 / var(--tw-text-opacity, 1))}.text-red-400{--tw-text-opacity:1;color:rgb(248 113 113 / var(--tw-text-opacity, 1))}.text-sky-300{--tw-text-opacity:1;color:rgb(125 211 252 / var(--tw-text-opacity, 1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-zinc-950{--tw-text-opacity:1;color:rgb(9 9 11 / var(--tw-text-opacity, 1))}.accent-amber-400{accent-color:#fbbf24}.opacity-0{opacity:0}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-200{transition-duration:200ms}.selection\:bg-amber-500 *::selection{--tw-bg-opacity:1;background-color:rgb(245 158 11 / var(--tw-bg-opacity, 1))}.selection\:text-zinc-950 *::selection{--tw-text-opacity:1;color:rgb(9 9 11 / var(--tw-text-opacity, 1))}.selection\:bg-amber-500::selection{--tw-bg-opacity:1;background-color:rgb(245 158 11 / var(--tw-bg-opacity, 1))}.selection\:text-zinc-950::selection{--tw-text-opacity:1;color:rgb(9 9 11 / var(--tw-text-opacity, 1))}.hover\:border-amber-300:hover{--tw-border-opacity:1;border-color:rgb(252 211 77 / var(--tw-border-opacity, 1))}.hover\:border-amber-400:hover{--tw-border-opacity:1;border-color:rgb(251 191 36 / var(--tw-border-opacity, 1))}.hover\:border-zinc-700:hover{--tw-border-opacity:1;border-color:rgb(63 63 70 / var(--tw-border-opacity, 1))}.hover\:bg-amber-300:hover{--tw-bg-opacity:1;background-color:rgb(252 211 77 / var(--tw-bg-opacity, 1))}.hover\:bg-emerald-900\/80:hover{background-color:rgb(6 78 59 / 0.8)}.hover\:bg-red-900\/80:hover{background-color:rgb(127 29 29 / 0.8)}.hover\:bg-sky-900\/80:hover{background-color:rgb(12 74 110 / 0.8)}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.focus\:border-amber-400:focus{--tw-border-opacity:1;border-color:rgb(251 191 36 / var(--tw-border-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}@media (min-width: 640px){.sm\:col-span-2{grid-column:span 2 / span 2}.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.sm\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.sm\:grid-cols-5{grid-template-columns:repeat(5, minmax(0, 1fr))}.sm\:gap-2{gap:0.5rem}.sm\:gap-4{gap:1rem}.sm\:gap-5{gap:1.25rem}.sm\:border-b-0{border-bottom-width:0px}.sm\:border-r{border-right-width:1px}.sm\:p-4{padding:1rem}.sm\:p-5{padding:1.25rem}.sm\:p-6{padding:1.5rem}.sm\:p-7{padding:1.75rem}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:text-2xl{font-size:1.5rem;line-height:2rem}.sm\:text-3xl{font-size:1.875rem;line-height:2.25rem}.sm\:text-\[11px\]{font-size:11px}.sm\:text-lg{font-size:1.125rem;line-height:1.75rem}.sm\:text-sm{font-size:0.875rem;line-height:1.25rem}.sm\:text-xl{font-size:1.25rem;line-height:1.75rem}.sm\:text-xs{font-size:0.75rem;line-height:1rem}.sm\:text-base{font-size:1rem;line-height:1.5rem}}@media (min-width: 1024px){.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}}</style><style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:"Cinzel", Georgia, serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.bottom-4{bottom:1rem}.left-1\/2{left:50%}.top-0{top:0px}.right-3{right:0.75rem}.bottom-2{bottom:0.5rem}.left-2{left:0.5rem}.right-2{right:0.5rem}.top-1\/2{top:50%}.right-1\.5{right:0.375rem}.top-1\.5{top:0.375rem}.z-30{z-index:30}.z-\[100\]{z-index:100}.z-50{z-index:50}.z-\[70\]{z-index:70}.z-\[75\]{z-index:75}.z-\[80\]{z-index:80}.z-\[85\]{z-index:85}.z-\[90\]{z-index:90}.z-\[95\]{z-index:95}.z-10{z-index:10}.mx-auto{margin-left:auto;margin-right:auto}.my-auto{margin-top:auto;margin-bottom:auto}.mt-1\.5{margin-top:0.375rem}.mb-1{margin-bottom:0.25rem}.mb-1\.5{margin-bottom:0.375rem}.ml-auto{margin-left:auto}.mt-0\.5{margin-top:0.125rem}.mt-1{margin-top:0.25rem}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-4{height:1rem}.h-9{height:2.25rem}.h-8{height:2rem}.h-6{height:1.5rem}.max-h-\[52vh\]{max-height:52vh}.max-h-\[65vh\]{max-height:65vh}.max-h-\[82vh\]{max-height:82vh}.min-h-screen{min-height:100vh}.min-h-\[120px\]{min-height:120px}.min-h-\[28px\]{min-height:28px}.min-h-\[100px\]{min-height:100px}.w-4{width:1rem}.w-9{width:2.25rem}.w-full{width:100%}.w-8{width:2rem}.w-6{width:1.5rem}.min-w-0{min-width:0px}.max-w-5xl{max-width:64rem}.max-w-2xl{max-width:42rem}.max-w-lg{max-width:32rem}.max-w-md{max-width:28rem}.max-w-sm{max-width:24rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-translate-y-1\/2{--tw-translate-y:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.translate-y-2{--tw-translate-y:0.5rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.cursor-pointer{cursor:pointer}.select-none{-webkit-user-select:none;user-select:none}.grid-cols-5{grid-template-columns:repeat(5, minmax(0, 1fr))}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-1\.5{gap:0.375rem}.gap-3{gap:0.75rem}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.gap-3\.5{gap:0.875rem}.gap-4{gap:1rem}.space-y-1\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.375rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.375rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-2\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.625rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.625rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-3\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.875rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.875rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.25rem * var(--tw-space-y-reverse))}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.divide-y > :not([hidden]) ~ :not([hidden]){--tw-divide-y-reverse:0;border-top-width:calc(1px * calc(1 - var(--tw-divide-y-reverse)));border-bottom-width:calc(1px * var(--tw-divide-y-reverse))}.divide-zinc-800 > :not([hidden]) ~ :not([hidden]){--tw-divide-opacity:1;border-color:rgb(39 39 42 / var(--tw-divide-opacity, 1))}.self-start{align-self:flex-start}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.whitespace-nowrap{white-space:nowrap}.whitespace-pre-wrap{white-space:pre-wrap}.break-words{overflow-wrap:break-word}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.rounded{border-radius:0.25rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-dashed{border-style:dashed}.border-amber-400\/70{border-color:rgb(251 191 36 / 0.7)}.border-sky-400{--tw-border-opacity:1;border-color:rgb(56 189 248 / var(--tw-border-opacity, 1))}.border-zinc-700{--tw-border-opacity:1;border-color:rgb(63 63 70 / var(--tw-border-opacity, 1))}.border-zinc-800{--tw-border-opacity:1;border-color:rgb(39 39 42 / var(--tw-border-opacity, 1))}.border-amber-400\/60{border-color:rgb(251 191 36 / 0.6)}.border-emerald-400{--tw-border-opacity:1;border-color:rgb(52 211 153 / var(--tw-border-opacity, 1))}.border-red-500{--tw-border-opacity:1;border-color:rgb(239 68 68 / var(--tw-border-opacity, 1))}.border-zinc-600{--tw-border-opacity:1;border-color:rgb(82 82 91 / var(--tw-border-opacity, 1))}.border-zinc-800\/70{border-color:rgb(39 39 42 / 0.7)}.border-zinc-800\/80{border-color:rgb(39 39 42 / 0.8)}.border-amber-400{--tw-border-opacity:1;border-color:rgb(251 191 36 / var(--tw-border-opacity, 1))}.border-emerald-400\/70{border-color:rgb(52 211 153 / 0.7)}.border-zinc-950{--tw-border-opacity:1;border-color:rgb(9 9 11 / var(--tw-border-opacity, 1))}.bg-amber-400{--tw-bg-opacity:1;background-color:rgb(251 191 36 / var(--tw-bg-opacity, 1))}.bg-sky-950\/80{background-color:rgb(8 47 73 / 0.8)}.bg-zinc-900{--tw-bg-opacity:1;background-color:rgb(24 24 27 / var(--tw-bg-opacity, 1))}.bg-zinc-950{--tw-bg-opacity:1;background-color:rgb(9 9 11 / var(--tw-bg-opacity, 1))}.bg-zinc-950\/95{background-color:rgb(9 9 11 / 0.95)}.bg-black\/85{background-color:rgb(0 0 0 / 0.85)}.bg-emerald-950\/80{background-color:rgb(2 44 34 / 0.8)}.bg-red-950\/80{background-color:rgb(69 10 10 / 0.8)}.bg-zinc-950\/90{background-color:rgb(9 9 11 / 0.9)}.bg-red-950\/90{background-color:rgb(69 10 10 / 0.9)}.p-3\.5{padding:0.875rem}.p-2\.5{padding:0.625rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-2{padding:0.5rem}.px-1{padding-left:0.25rem;padding-right:0.25rem}.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.px-4{padding-left:1rem;padding-right:1rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-14{padding-top:3.5rem;padding-bottom:3.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.px-0\.5{padding-left:0.125rem;padding-right:0.125rem}.pb-2\.5{padding-bottom:0.625rem}.pt-3\.5{padding-top:0.875rem}.pt-4{padding-top:1rem}.pb-3{padding-bottom:0.75rem}.pl-3{padding-left:0.75rem}.pr-11{padding-right:2.75rem}.pr-2{padding-right:0.5rem}.pr-9{padding-right:2.25rem}.pt-1{padding-top:0.25rem}.pt-2{padding-top:0.5rem}.pt-3{padding-top:0.75rem}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-\[10px\]{font-size:10px}.text-xs{font-size:0.75rem;line-height:1rem}.text-\[11px\]{font-size:11px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.font-bold{font-weight:700}.font-semibold{font-weight:600}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.leading-snug{line-height:1.375}.tracking-\[0\.12em\]{letter-spacing:0.12em}.text-amber-400{--tw-text-opacity:1;color:rgb(251 191 36 / var(--tw-text-opacity, 1))}.text-sky-300{--tw-text-opacity:1;color:rgb(125 211 252 / var(--tw-text-opacity, 1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-zinc-950{--tw-text-opacity:1;color:rgb(9 9 11 / var(--tw-text-opacity, 1))}.text-emerald-300{--tw-text-opacity:1;color:rgb(110 231 183 / var(--tw-text-opacity, 1))}.text-emerald-400{--tw-text-opacity:1;color:rgb(52 211 153 / var(--tw-text-opacity, 1))}.text-red-300{--tw-text-opacity:1;color:rgb(252 165 165 / var(--tw-text-opacity, 1))}.text-red-400{--tw-text-opacity:1;color:rgb(248 113 113 / var(--tw-text-opacity, 1))}.text-transparent{color:transparent}.accent-amber-400{accent-color:#fbbf24}.opacity-0{opacity:0}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-200{transition-duration:200ms}.selection\:bg-amber-500 *::selection{--tw-bg-opacity:1;background-color:rgb(245 158 11 / var(--tw-bg-opacity, 1))}.selection\:text-zinc-950 *::selection{--tw-text-opacity:1;color:rgb(9 9 11 / var(--tw-text-opacity, 1))}.selection\:bg-amber-500::selection{--tw-bg-opacity:1;background-color:rgb(245 158 11 / var(--tw-bg-opacity, 1))}.selection\:text-zinc-950::selection{--tw-text-opacity:1;color:rgb(9 9 11 / var(--tw-text-opacity, 1))}.hover\:border-amber-300:hover{--tw-border-opacity:1;border-color:rgb(252 211 77 / var(--tw-border-opacity, 1))}.hover\:border-amber-400:hover{--tw-border-opacity:1;border-color:rgb(251 191 36 / var(--tw-border-opacity, 1))}.hover\:border-zinc-700:hover{--tw-border-opacity:1;border-color:rgb(63 63 70 / var(--tw-border-opacity, 1))}.hover\:border-emerald-300:hover{--tw-border-opacity:1;border-color:rgb(110 231 183 / var(--tw-border-opacity, 1))}.hover\:border-zinc-500:hover{--tw-border-opacity:1;border-color:rgb(113 113 122 / var(--tw-border-opacity, 1))}.hover\:bg-sky-900\/80:hover{background-color:rgb(12 74 110 / 0.8)}.hover\:bg-amber-300:hover{--tw-bg-opacity:1;background-color:rgb(252 211 77 / var(--tw-bg-opacity, 1))}.hover\:bg-emerald-900\/80:hover{background-color:rgb(6 78 59 / 0.8)}.hover\:bg-red-900\/80:hover{background-color:rgb(127 29 29 / 0.8)}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.focus\:border-amber-400:focus{--tw-border-opacity:1;border-color:rgb(251 191 36 / var(--tw-border-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.disabled\:pointer-events-none:disabled{pointer-events:none}.disabled\:opacity-30:disabled{opacity:0.3}@media (min-width: 640px){.sm\:col-span-2{grid-column:span 2 / span 2}.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.sm\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.sm\:grid-cols-5{grid-template-columns:repeat(5, minmax(0, 1fr))}.sm\:flex-row{flex-direction:row}.sm\:items-center{align-items:center}.sm\:gap-2{gap:0.5rem}.sm\:gap-4{gap:1rem}.sm\:gap-5{gap:1.25rem}.sm\:self-center{align-self:center}.sm\:border-b-0{border-bottom-width:0px}.sm\:border-r{border-right-width:1px}.sm\:p-4{padding:1rem}.sm\:p-5{padding:1.25rem}.sm\:p-6{padding:1.5rem}.sm\:p-7{padding:1.75rem}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:text-3xl{font-size:1.875rem;line-height:2.25rem}.sm\:text-sm{font-size:0.875rem;line-height:1.25rem}.sm\:text-xs{font-size:0.75rem;line-height:1rem}.sm\:text-2xl{font-size:1.5rem;line-height:2rem}.sm\:text-\[11px\]{font-size:11px}.sm\:text-lg{font-size:1.125rem;line-height:1.75rem}.sm\:text-xl{font-size:1.25rem;line-height:1.75rem}.sm\:text-base{font-size:1rem;line-height:1.5rem}}@media (min-width: 1024px){.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}}</style></head>
+<body class="bg-zinc-950 text-white min-h-screen flex flex-col selection:bg-amber-500 selection:text-zinc-950">
+
+  <!-- =====================================================================
+       TOAST NOTIFICHE
+       ===================================================================== -->
+  <div id="toast" class="fixed bottom-4 left-1/2 -translate-x-1/2 z-[100] pointer-events-none transition-all duration-200 opacity-0 translate-y-2">
+    <div id="toast-text" class="px-4 py-2 rounded-full bg-amber-400 text-zinc-950 text-xs font-bold shadow-2xl whitespace-nowrap">Componente salvato</div>
+  </div>
+
+  <!-- =====================================================================
+       HEADER SUPERIORE: NOME BRAND IN AMBRA + TASTO ACCESSO / TASTI ADMIN
+       ===================================================================== -->
+  <header class="sticky top-0 z-30 bg-zinc-950/95 backdrop-blur-md border-b border-zinc-800">
+    <div class="max-w-5xl mx-auto px-3.5 sm:px-6 pt-3.5 pb-2.5 flex items-start justify-between gap-3">
+      <!-- Sinistra: Nome Brand in Ambra e Sottotitolo -->
+      <div id="brand-view" class="flex-1 min-w-0">
+        <h1 id="view-brand" class="text-2xl sm:text-3xl tracking-[0.12em] text-amber-400 font-bold leading-none break-words">RYUMA jewels</h1>
+        <p id="view-tagline" class="text-xs text-slate-300 mt-1.5 leading-snug break-words">Gioielli artigianali su misura. Pietre naturali e acciaio inox.</p>
+      </div>
+
+      <!-- Destra: Tasto icona accesso Admin + Funzioni modifica/download visibili dopo il login -->
+      
+    </div>
+
+    <!-- ===================================================================
+         NAVIGAZIONE VETRINA INIZIALE (VISIBILE SOLO QUANDO NON SI È IN ADMIN)
+         =================================================================== -->
+    <nav id="client-nav" aria-label="Sezioni catalogo" class="max-w-5xl mx-auto px-3.5 sm:px-6 pb-2.5">
+      <div class="grid grid-cols-5 gap-1 sm:gap-2">
+        <button type="button" data-tab="bracciali" onclick="selectTab('bracciali')" class="nav-tab py-2 px-1 rounded-lg text-[10px] sm:text-xs font-semibold text-center truncate transition bg-amber-400 text-zinc-950">
+          Bracciali
+        </button>
+        <button type="button" data-tab="collane" onclick="selectTab('collane')" class="nav-tab py-2 px-1 rounded-lg text-[10px] sm:text-xs font-semibold text-center truncate transition bg-zinc-900 text-slate-300 hover:text-white border border-zinc-800">
+          Collane
+        </button>
+        <button type="button" data-tab="set" onclick="selectTab('set')" class="nav-tab py-2 px-1 rounded-lg text-[10px] sm:text-xs font-semibold text-center truncate transition bg-zinc-900 text-slate-300 hover:text-white border border-zinc-800">
+          Set
+        </button>
+        <button type="button" data-tab="materiali" onclick="selectTab('materiali')" class="nav-tab py-2 px-1 rounded-lg text-[10px] sm:text-xs font-semibold text-center truncate transition bg-zinc-900 text-slate-300 hover:text-white border border-zinc-800">
+          Componenti
+        </button>
+        <button type="button" data-tab="personalizzati" onclick="selectTab('personalizzati')" class="nav-tab py-2 px-1 rounded-lg text-[10px] sm:text-xs font-semibold text-center truncate transition bg-zinc-900 text-slate-300 hover:text-white border border-zinc-800">
+          Su misura
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- =====================================================================
+       PAGINA INIZIALE (VETRINA + PRESENTAZIONE) - NASCOSTA IN PAGINA ADMIN
+       ===================================================================== -->
+  <div id="home-view" class="flex-1 flex flex-col">
+    <!-- Presentazione del brand -->
+    <section id="presentation-section" class="max-w-5xl mx-auto w-full px-3.5 sm:px-6 pt-4">
+      <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-3.5 sm:p-4">
+        <p id="view-presentation" class="text-xs sm:text-sm text-white leading-relaxed break-words">Creazioni artigianali realizzate a mano con pietre naturali selezionate e acciaio inox. Ogni bracciale o collana può essere realizzato su misura con misure e componenti personalizzati.</p>
+      </div>
+    </section>
+
+    <!-- Contenuto principale vetrina: catalogo, componenti o su misura -->
+    <main class="max-w-5xl mx-auto w-full px-3.5 sm:px-6 py-4 flex-1">
+      <!-- Griglia Articoli (Bracciali / Collane / Set) -->
+      <section id="section-catalog" class="">
+        <div id="catalog-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 items-start"></div>
+        <div id="empty-catalog" class="hidden text-center py-14 border border-dashed border-zinc-800 rounded-2xl text-slate-300 text-xs">
+          Nessun articolo in questa sezione.
+        </div>
+      </section>
+
+      <!-- Sezione Esplorazione Componenti (Cliente) divisa in Pietre, Ematite, Acciaio, Cavetto base -->
+      <section id="section-materials" class="hidden space-y-4">
+        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 space-y-3">
+          <div>
+            <span class="block text-[10px] font-semibold text-amber-400">Atlante componenti</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white mt-0.5">Componenti disponibili</h2>
+            <p class="text-xs text-slate-300 mt-1">
+              Esplora pietre, ematite, acciaio e cavetto base ordinati per nome e misura.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+            <button type="button" id="client-mat-stones" onclick="selectClientMaterialCategory('stones')" class="py-2 px-2 rounded-lg text-[11px] font-bold transition bg-amber-400 text-zinc-950">
+              Pietre
+            </button>
+            <button type="button" id="client-mat-hematite" onclick="selectClientMaterialCategory('hematite')" class="py-2 px-2 rounded-lg text-[11px] font-bold transition bg-zinc-950 text-slate-300 border border-zinc-800 hover:text-white">
+              Ematite
+            </button>
+            <button type="button" id="client-mat-steel" onclick="selectClientMaterialCategory('steel')" class="py-2 px-2 rounded-lg text-[11px] font-bold transition bg-zinc-950 text-slate-300 border border-zinc-800 hover:text-white">
+              Acciaio
+            </button>
+            <button type="button" id="client-mat-cord" onclick="selectClientMaterialCategory('cord')" class="py-2 px-2 rounded-lg text-[11px] font-bold transition bg-zinc-950 text-slate-300 border border-zinc-800 hover:text-white">
+              Cavetto base
+            </button>
+          </div>
+        </div>
+
+        <div id="materials-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3.5 sm:gap-4 items-start"></div>
+        <div id="empty-materials" class="hidden text-center py-14 border border-dashed border-zinc-800 rounded-2xl text-slate-300 text-xs">
+          Nessun componente in questa sezione.
+        </div>
+      </section>
+
+      <!-- Sezione Su Misura (Cliente con stesso selettore materiali diviso per categoria, senza spostamento) -->
+      <section id="section-custom" class="hidden max-w-2xl mx-auto w-full">
+        <div class="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 sm:p-7 space-y-5 overflow-hidden">
+          <div>
+            <span class="block text-[10px] font-semibold text-amber-400">Su misura artigianale</span>
+            <h2 class="text-xl sm:text-3xl font-bold text-white mt-1 break-words">Crea il tuo gioiello su misura</h2>
+            <p class="text-xs text-slate-300 mt-1.5 leading-relaxed">
+              Scegli tipologia, misura (<span class="unit-cm">cm</span>), aggiungi pietre, ematite, acciaio e cavetto base e invia la richiesta su Telegram.
+            </p>
+          </div>
+
+          <form onsubmit="sendCustomOrderTelegram(event)" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="min-w-0">
+                <label class="block text-[11px] font-semibold text-slate-300 mb-1">Tipologia</label>
+                <select id="custom-type" onchange="renderCustomMeasureFields()" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-amber-400">
+                  <option value="Bracciale">Bracciale</option>
+                  <option value="Collana">Collana</option>
+                  <option value="Set coordinato">Set coordinato</option>
+                </select>
+              </div>
+
+              <!-- Misura singola (Bracciale o Collana) -->
+              <div id="custom-single-size-wrap" class="min-w-0">
+                <label class="block text-[11px] font-semibold text-slate-300 mb-1">Misura desiderata (<span class="unit-cm">cm</span>)</label>
+                <div class="relative flex items-center">
+                  <input type="text" id="custom-size" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl pl-3 pr-11 py-2.5 text-xs text-white focus:outline-none focus:border-amber-400" value="">
+                  <span class="unit-cm pointer-events-none absolute right-3 text-xs font-bold text-amber-400">cm</span>
+                </div>
+                <p id="custom-bracelet-note" class="text-[11px] text-amber-400 mt-1.5 leading-snug break-words">Per una vestibilità comoda, consigliamo una misura del bracciale di 1,5 <span class="unit-cm">cm</span> superiore a quella del polso.</p>
+              </div>
+
+              <!-- Doppie misure per Set coordinato (Bracciale + Collana) -->
+              <div id="custom-set-sizes-wrap" class="hidden space-y-2.5 min-w-0">
+                <div>
+                  <label class="block text-[11px] font-semibold text-slate-300 mb-1">Misura bracciale (<span class="unit-cm">cm</span>)</label>
+                  <div class="relative flex items-center">
+                    <input type="text" id="custom-bracelet-size" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl pl-3 pr-11 py-2.5 text-xs text-white focus:outline-none focus:border-amber-400" value="">
+                    <span class="unit-cm pointer-events-none absolute right-3 text-xs font-bold text-amber-400">cm</span>
+                  </div>
+                </div>
+                <div>
+                  <label class="block text-[11px] font-semibold text-slate-300 mb-1">Misura collana (<span class="unit-cm">cm</span>)</label>
+                  <div class="relative flex items-center">
+                    <input type="text" id="custom-necklace-size" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl pl-3 pr-11 py-2.5 text-xs text-white focus:outline-none focus:border-amber-400" value="">
+                    <span class="unit-cm pointer-events-none absolute right-3 text-xs font-bold text-amber-400">cm</span>
+                  </div>
+                </div>
+                <p id="custom-set-bracelet-note" class="text-[11px] text-amber-400 leading-snug break-words hidden"></p>
+              </div>
+            </div>
+
+            <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-3 space-y-2.5 overflow-hidden">
+              <div class="flex flex-col gap-2">
+                <label class="block text-[11px] font-semibold text-amber-400">Pietre, ematite, acciaio e cavetto base</label>
+                <div class="grid grid-cols-2 gap-1.5 w-full">
+                  <button type="button" onclick="openMaterialPickerModal('stones', 'custom')" class="w-full min-w-0 px-2 py-2 rounded-lg bg-emerald-950/80 border border-emerald-400 text-emerald-300 text-[10px] sm:text-[11px] font-bold hover:bg-emerald-900/80 transition text-center truncate">
+                    + Pietre
+                  </button>
+                  <button type="button" onclick="openMaterialPickerModal('hematite', 'custom')" class="w-full min-w-0 px-2 py-2 rounded-lg bg-emerald-950/80 border border-emerald-400 text-emerald-300 text-[10px] sm:text-[11px] font-bold hover:bg-emerald-900/80 transition text-center truncate">
+                    + Ematite
+                  </button>
+                  <button type="button" onclick="openMaterialPickerModal('steel', 'custom')" class="w-full min-w-0 px-2 py-2 rounded-lg bg-emerald-950/80 border border-emerald-400 text-emerald-300 text-[10px] sm:text-[11px] font-bold hover:bg-emerald-900/80 transition text-center truncate">
+                    + Acciaio
+                  </button>
+                  <button type="button" onclick="openMaterialPickerModal('cord', 'custom')" class="w-full min-w-0 px-2 py-2 rounded-lg bg-emerald-950/80 border border-emerald-400 text-emerald-300 text-[10px] sm:text-[11px] font-bold hover:bg-emerald-900/80 transition text-center truncate">
+                    + Cavetto base
+                  </button>
+                </div>
+              </div>
+
+              <div id="custom-selected-materials" class="space-y-3 min-h-[28px]"></div>
+            </div>
+
+            <div>
+              <label class="block text-[11px] font-semibold text-slate-300 mb-1">Note aggiuntive</label>
+              <textarea id="custom-notes" rows="3" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-amber-400" value=""></textarea>
+            </div>
+
+            <button type="submit" id="custom-telegram-btn" class="w-full py-3 rounded-xl bg-amber-400 text-zinc-950 text-xs font-bold hover:bg-amber-300 transition flex items-center justify-center gap-2">
+              <span>Invia richiesta su Telegram ↗</span>
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- =====================================================================
+       PAGINA A SÉ: MODALITÀ ADMIN (1. MODIFICA SITO, 2. ARTICOLI, 3. COMPONENTI)
+       ===================================================================== -->
+  
+
+  <!-- =====================================================================
+       FOOTER MINIMALE
+       ===================================================================== -->
+  <footer class="border-t border-zinc-800 py-4 px-3.5 sm:px-6 text-center text-xs text-slate-300">
+    <span id="footer-brand" class="text-amber-400 font-bold">RYUMA jewels</span>
+    <span id="footer-text-separator"> · </span>
+    <span id="view-footer-text" class="text-slate-300">Pietre naturali e acciaio inox · Misura in <span class="unit-cm">cm</span></span>
+  </footer>
+
+  <!-- =====================================================================
+       MODALE ACCESSO ADMIN (USERNAME + CODICE)
+       ===================================================================== -->
+  
+
+  <!-- =====================================================================
+       MODALE COMPOSIZIONE ARTICOLO / SET (CLIENTE) DIVISA PER CATEGORIA
+       ===================================================================== -->
+  <div id="composition-modal" class="fixed inset-0 z-[70] bg-black/85 backdrop-blur-sm hidden items-center justify-center p-3.5 sm:p-6 overflow-y-auto" onclick="if(event.target===this) closeCompositionModal()">
+    <div class="bg-zinc-900 border border-zinc-700 rounded-2xl max-w-md w-full overflow-hidden shadow-2xl animate-panel my-auto">
+      <div class="flex items-center justify-between px-4 py-3 border-b border-zinc-800">
+        <div class="min-w-0 pr-2">
+          <span id="comp-modal-label" class="block text-[10px] font-semibold text-amber-400">Composizione</span>
+          <h3 id="comp-modal-title" class="text-base sm:text-lg font-bold text-white leading-snug break-words"></h3>
+        </div>
+        <button type="button" onclick="closeCompositionModal()" class="w-8 h-8 rounded-lg bg-zinc-950 border border-zinc-700 text-slate-300 hover:text-white flex items-center justify-center text-xs shrink-0">✕</button>
+      </div>
+
+      <div id="comp-modal-list" class="p-4 space-y-3 max-h-[65vh] overflow-y-auto"></div>
+
+      <div class="px-4 py-3 border-t border-zinc-800 bg-zinc-950 flex items-center justify-between gap-2">
+        <button type="button" onclick="closeCompositionModal(); selectTab('materiali');" class="text-xs font-semibold text-slate-300 hover:text-white transition">
+          Tutti i componenti →
+        </button>
+        <button type="button" onclick="closeCompositionModal()" class="px-3.5 py-1.5 rounded-lg bg-amber-400 text-zinc-950 text-xs font-bold">
+          Chiudi
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       MODALE DETTAGLIO ARTICOLO / SET (CLIENTE)
+       ===================================================================== -->
+  <div id="detail-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden items-center justify-center p-3 sm:p-6 overflow-y-auto" onclick="if(event.target===this) closeDetailModal()">
+    <div class="bg-zinc-900 border border-zinc-700 rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl animate-panel my-auto">
+      <div class="flex items-center justify-between px-4 py-3 border-b border-zinc-800">
+        <span id="detail-cat" class="text-xs font-semibold text-amber-400"></span>
+        <button type="button" onclick="closeDetailModal()" class="w-8 h-8 rounded-lg bg-zinc-950 border border-zinc-700 text-slate-300 hover:text-white flex items-center justify-center text-xs">✕</button>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 items-start">
+        <div id="detail-media-column" class="bg-zinc-950 border-b sm:border-b-0 sm:border-r border-zinc-800 flex flex-col">
+          <!-- Vista singola per bracciale/collana -->
+          <div id="detail-single-photo-wrap" class="bg-zinc-950 flex flex-col">
+            <div class="bg-zinc-950 flex items-center justify-center">
+              <img id="detail-main-img" src="" alt="" class="photo-natural">
+            </div>
+            <div id="detail-thumbs" class="p-2.5 flex items-center gap-2 overflow-x-auto no-scrollbar bg-zinc-950 border-t border-zinc-800/70"></div>
+          </div>
+
+          <!-- Due riquadri sovrapposti per set: bracciale sopra, collana sotto -->
+          <div id="detail-set-photos-wrap" class="hidden divide-y divide-zinc-800 bg-zinc-950">
+            <div class="p-2.5 space-y-2">
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-[10px] font-bold text-amber-400">Bracciale</span>
+                <span id="detail-set-bracelet-name" class="text-[11px] font-semibold text-white truncate"></span>
+              </div>
+              <div class="bg-zinc-950 rounded-xl border border-zinc-800/80 overflow-hidden flex items-center justify-center">
+                <img id="detail-set-bracelet-img" src="" alt="" class="set-half-photo">
+              </div>
+              <div id="detail-set-bracelet-thumbs" class="flex items-center gap-1.5 overflow-x-auto no-scrollbar"></div>
+            </div>
+
+            <div class="p-2.5 space-y-2">
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-[10px] font-bold text-amber-400">Collana</span>
+                <span id="detail-set-necklace-name" class="text-[11px] font-semibold text-white truncate"></span>
+              </div>
+              <div class="bg-zinc-950 rounded-xl border border-zinc-800/80 overflow-hidden flex items-center justify-center">
+                <img id="detail-set-necklace-img" src="" alt="" class="set-half-photo">
+              </div>
+              <div id="detail-set-necklace-thumbs" class="flex items-center gap-1.5 overflow-x-auto no-scrollbar"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-4 sm:p-5 flex flex-col justify-between gap-4">
+          <div class="space-y-3">
+            <div class="flex items-start justify-between gap-2">
+              <h3 id="detail-title" class="text-lg sm:text-xl font-bold text-white leading-snug break-words"></h3>
+              <span id="detail-price" class="text-sm font-bold text-amber-400 shrink-0"></span>
+            </div>
+
+            <button type="button" onclick="openCompositionFromDetail()" class="w-full py-2.5 px-3.5 rounded-xl bg-zinc-950 border border-zinc-700 hover:border-amber-400 text-white text-xs font-semibold transition flex items-center justify-between">
+              <span id="detail-comp-btn-text">Composizione</span>
+              <span class="text-xs text-amber-400">Vedi ↗</span>
+            </button>
+
+            <!-- Misura singola (Bracciale o Collana) -->
+            <div id="detail-single-size-wrap" class="pt-1">
+              <label for="detail-size-input" class="block text-[11px] font-semibold text-slate-300 mb-1">
+                Misura desiderata (<span class="unit-cm">cm</span>)
+              </label>
+              <div class="relative flex items-center">
+                <input type="text" id="detail-size-input" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl pl-3 pr-11 py-2 text-xs text-white focus:outline-none focus:border-amber-400" value="">
+                <span class="unit-cm pointer-events-none absolute right-3 text-xs font-bold text-amber-400">cm</span>
+              </div>
+              <p id="detail-bracelet-note" class="text-[11px] text-amber-400 mt-1.5 leading-snug break-words"></p>
+            </div>
+
+            <!-- Doppie misure per Set (Bracciale + Collana) -->
+            <div id="detail-set-sizes-wrap" class="hidden pt-1 space-y-2.5">
+              <div>
+                <label for="detail-bracelet-size-input" class="block text-[11px] font-semibold text-slate-300 mb-1">
+                  Misura bracciale (<span class="unit-cm">cm</span>)
+                </label>
+                <div class="relative flex items-center">
+                  <input type="text" id="detail-bracelet-size-input" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl pl-3 pr-11 py-2 text-xs text-white focus:outline-none focus:border-amber-400" value="">
+                  <span class="unit-cm pointer-events-none absolute right-3 text-xs font-bold text-amber-400">cm</span>
+                </div>
+              </div>
+              <div>
+                <label for="detail-necklace-size-input" class="block text-[11px] font-semibold text-slate-300 mb-1">
+                  Misura collana (<span class="unit-cm">cm</span>)
+                </label>
+                <div class="relative flex items-center">
+                  <input type="text" id="detail-necklace-size-input" class="w-full bg-zinc-950 border border-zinc-700 rounded-xl pl-3 pr-11 py-2 text-xs text-white focus:outline-none focus:border-amber-400" value="">
+                  <span class="unit-cm pointer-events-none absolute right-3 text-xs font-bold text-amber-400">cm</span>
+                </div>
+              </div>
+              <p id="detail-set-bracelet-note" class="text-[11px] text-amber-400 leading-snug break-words"></p>
+            </div>
+          </div>
+
+          <button type="button" id="detail-telegram-btn" onclick="sendDetailArticleTelegram()" class="w-full py-2.5 px-4 rounded-xl bg-amber-400 text-zinc-950 text-xs font-bold text-center hover:bg-amber-300 transition flex items-center justify-center gap-2">
+            <span>Invia richiesta su Telegram ↗</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       MODALE DETTAGLIO COMPONENTE (CLIENTE)
+       ===================================================================== -->
+  <div id="material-detail-modal" class="fixed inset-0 z-[75] bg-black/85 backdrop-blur-sm hidden items-center justify-center p-3.5 sm:p-6 overflow-y-auto" onclick="if(event.target===this) closeMaterialDetailModal()">
+    <div class="bg-zinc-900 border border-zinc-700 rounded-2xl max-w-md w-full overflow-hidden shadow-2xl animate-panel my-auto">
+      <div class="flex items-center justify-between px-4 py-3 border-b border-zinc-800">
+        <span class="text-xs font-semibold text-amber-400">Scheda componente</span>
+        <button type="button" onclick="closeMaterialDetailModal()" class="w-8 h-8 rounded-lg bg-zinc-950 border border-zinc-700 text-slate-300 hover:text-white flex items-center justify-center text-xs">✕</button>
+      </div>
+      <div class="bg-zinc-950 border-b border-zinc-800 flex items-center justify-center">
+        <img id="mat-detail-img" src="" alt="" class="photo-natural">
+      </div>
+      <div class="p-4 sm:p-5 space-y-2.5">
+        <h3 id="mat-detail-name" class="text-lg sm:text-xl font-bold text-white break-words"></h3>
+        <div id="mat-detail-sizes-wrap">
+          <span class="block text-[10px] font-semibold text-amber-400 mb-1">Misure disponibili</span>
+          <div id="mat-detail-sizes" class="flex flex-wrap gap-1.5"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       MODALE AGGIUNGI / MODIFICA ARTICOLO (BRACCIALI / COLLANE)
+       ===================================================================== -->
+  
+
+  <!-- =====================================================================
+       MODALE SET (SCEGLI BRACCIALE + COLLANA, NOME MODIFICABILE, 2 FINESTRE FOTO)
+       ===================================================================== -->
+  
+
+  <!-- =====================================================================
+       MODALE SELETTORE COMPONENTI (CON TASTI MISURA IN ORDINE CRESCENTE)
+       ===================================================================== -->
+  <div id="material-picker-modal" class="fixed inset-0 z-[85] bg-black/85 backdrop-blur-sm hidden items-center justify-center p-3 sm:p-6 overflow-y-auto" onclick="if(event.target===this) closeMaterialPickerModal()">
+    <div class="bg-zinc-900 border border-zinc-700 rounded-2xl max-w-md w-full overflow-hidden shadow-2xl animate-panel my-auto">
+      <div class="flex items-center justify-between px-4 py-3 border-b border-zinc-800">
+        <div>
+          <span id="picker-category-label" class="block text-[10px] font-semibold text-amber-400">Composizione</span>
+          <h3 id="picker-modal-title" class="text-lg font-bold text-white">Seleziona componenti</h3>
+        </div>
+        <button type="button" onclick="closeMaterialPickerModal()" class="w-8 h-8 rounded-lg bg-zinc-950 border border-zinc-700 text-slate-300 hover:text-white flex items-center justify-center text-xs">✕</button>
+      </div>
+
+      <div class="px-4 py-2.5 border-b border-zinc-800 bg-zinc-950 flex items-center justify-between gap-2">
+        <span id="picker-selected-count" class="text-xs font-bold text-amber-400">0 selezionati</span>
+        <button type="button" id="picker-add-new-btn" onclick="openAddMaterialModal(true, activePickerCategory)" class="px-2.5 py-1 rounded-lg bg-emerald-950/80 border border-emerald-400 text-emerald-300 text-[11px] font-bold hover:bg-emerald-900/80 transition">
+          + Componente
+        </button>
+      </div>
+
+      <!-- Tasti in alto per aprire la sezione della misura scelta in ordine di grandezza -->
+      <div id="material-picker-size-tabs" class="px-4 py-2.5 border-b border-zinc-800 bg-zinc-900 flex items-center gap-1.5 overflow-x-auto no-scrollbar"></div>
+
+      <div id="material-picker-list" class="p-4 space-y-2 max-h-[52vh] overflow-y-auto"></div>
+
+      <div class="px-4 py-3 border-t border-zinc-800 bg-zinc-950 flex justify-end">
+        <button type="button" onclick="closeMaterialPickerModal()" class="w-full py-2.5 rounded-xl bg-amber-400 text-zinc-950 text-xs font-bold hover:bg-amber-300 transition">
+          Conferma selezione
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       MODALE AGGIUNGI / MODIFICA COMPONENTE (SPUNTE SU MISURE DEFAULT 4,5,6,7,8 mm)
+       ===================================================================== -->
+  
+
+  <!-- =====================================================================
+       DATI E LOGICA APPLICATIVA
+       ===================================================================== -->
+  <script id="ryuma-data" type="application/json">
+{
+  "config": {
+    "brandName": "RYUMA jewels",
+    "tagline": "Gioielli artigianali su misura. Pietre naturali e acciaio inox.",
+    "presentation": "Creazioni artigianali realizzate a mano con pietre naturali selezionate e acciaio inox. Ogni bracciale o collana può essere realizzato su misura con misure e componenti personalizzati.",
+    "footerText": "Pietre naturali e acciaio inox · Misura in cm",
+    "compositionBtnLabel": "Composizione",
+    "braceletSizeNote": "Per una vestibilità comoda, consigliamo una misura del bracciale di 1,5 cm superiore a quella del polso.",
+    "telegramChannel": ""
+  },
+  "copyTemplate": {
+    "articleIntro": "Ciao {brand}! Vorrei informazioni su questo articolo:",
+    "customIntro": "Ciao {brand}! Vorrei richiedere un gioiello Su misura:",
+    "closingText": "",
+    "defaultCustomNotes": "",
+    "includeCategory": true,
+    "includePrice": true,
+    "includeMeasure": true,
+    "includeComponents": true,
+    "includeNotes": true
+  },
+  "auth": {
+    "username": "0000",
+    "code": "0000"
+  },
+  "materials": [
+    {
+      "id": "mat-acciaio-316l",
+      "name": "Acciaio Inox 316L",
+      "type": "steel",
+      "sizes": [
+        "4 mm",
+        "6 mm",
+        "8 mm"
+      ],
+      "image": "https://placehold.co/600x450/18181b/ffffff?text=Acciaio+Inox+316L"
+    },
+    {
+      "id": "mat-catenina-forzatina",
+      "name": "Catenina forzatina d'acciaio",
+      "type": "cord",
+      "sizes": [],
+      "image": "https://placehold.co/600x450/18181b/ffffff?text=Catenina+Forzatina"
+    },
+    {
+      "id": "mat-cavetto-intrecciato",
+      "name": "Cavetto d'acciaio intrecciato",
+      "type": "cord",
+      "sizes": [],
+      "image": "https://placehold.co/600x450/18181b/fbbf24?text=Cavetto+Intrecciato"
+    },
+    {
+      "id": "mat-giada-thai",
+      "name": "Giada Thailandese",
+      "type": "stones",
+      "sizes": [
+        "4 mm",
+        "6 mm",
+        "8 mm"
+      ],
+      "image": "https://placehold.co/600x450/18181b/fbbf24?text=Giada+Thailandese"
+    },
+    {
+      "id": "mat-howlite",
+      "name": "Howlite Bianca",
+      "type": "stones",
+      "sizes": [
+        "6 mm",
+        "8 mm"
+      ],
+      "image": "https://placehold.co/600x450/18181b/fbbf24?text=Howlite+Bianca"
+    },
+    {
+      "id": "mat-occhio-tigre",
+      "name": "Occhio di Tigre",
+      "type": "stones",
+      "sizes": [
+        "6 mm",
+        "8 mm"
+      ],
+      "image": "https://placehold.co/600x450/18181b/fbbf24?text=Occhio+di+Tigre"
+    },
+    {
+      "id": "mat-onice-nero",
+      "name": "Onice Nero",
+      "type": "stones",
+      "sizes": [
+        "4 mm",
+        "6 mm",
+        "8 mm"
+      ],
+      "image": "https://placehold.co/600x450/18181b/fbbf24?text=Onice+Nero"
+    },
+    {
+      "id": "mat-pietra-lavica",
+      "name": "Pietra Lavica",
+      "type": "stones",
+      "sizes": [
+        "6 mm",
+        "8 mm"
+      ],
+      "image": "https://placehold.co/600x450/18181b/fbbf24?text=Pietra+Lavica"
+    }
+  ],
+  "items": [
+    {
+      "id": "ryuma-collana-01",
+      "category": "collane",
+      "title": "Ryuma",
+      "price": "15 €",
+      "composition": [],
+      "images": [
+        "https://placehold.co/800x600/18181b/fbbf24?text=Ryuma"
+      ]
+    },
+    {
+      "id": "ryuma-bracciale-02",
+      "category": "bracciali",
+      "title": "Ryuma",
+      "price": "15 €",
+      "composition": [],
+      "images": [
+        "https://placehold.co/800x600/18181b/fbbf24?text=Ryuma"
+      ]
+    },
+    {
+      "id": "ryuma-set-01",
+      "category": "set",
+      "title": "Set",
+      "braceletId": "ryuma-bracciale-02",
+      "necklaceId": "ryuma-collana-01",
+      "price": "25 €"
+    }
+  ]
+}
+  </script>
+
+  <script id="ryuma-app-script">
+    const IS_CLIENT_LOCKED = document.documentElement.dataset.ryumaClient === 'true';
+    const STORAGE_ADMIN_AUTOSAVE_KEY = 'ryuma_jewels_admin_autosave_v1';
+    const DEFAULT_ADMIN_USERNAME = '0000';
+    const DEFAULT_ADMIN_CODE = '0000';
+    const DEFAULT_COMPONENT_SIZES = ['4 mm', '5 mm', '6 mm', '7 mm', '8 mm'];
+    const MATERIAL_CATEGORIES = ['stones', 'hematite', 'steel', 'cord'];
+    const MATERIAL_CATEGORY_LABELS = {
+      stones: 'Pietre',
+      hematite: 'Ematite',
+      steel: 'Acciaio',
+      cord: 'Cavetto base'
+    };
+
+    const DEFAULT_COPY_TEMPLATE = {
+      articleIntro: 'Ciao {brand}! Vorrei informazioni su questo articolo:',
+      customIntro: 'Ciao {brand}! Vorrei richiedere un gioiello Su misura:',
+      closingText: '',
+      defaultCustomNotes: '',
+      includeCategory: true,
+      includePrice: true,
+      includeMeasure: true,
+      includeComponents: true,
+      includeNotes: true
+    };
+
+    let appState = {
+      config: {
+        brandName: 'RYUMA jewels',
+        tagline: 'Gioielli artigianali su misura. Pietre naturali, ematite e acciaio inox.',
+        presentation: 'Creazioni artigianali realizzate a mano con pietre naturali selezionate, ematite e acciaio inox. Ogni bracciale o collana può essere realizzato su misura con misure e componenti personalizzati.',
+        footerText: 'Pietre naturali, ematite e acciaio inox · Misura in cm',
+        compositionBtnLabel: 'Composizione',
+        braceletSizeNote: 'Per una vestibilità comoda, consigliamo una misura del bracciale di 1,5 cm superiore a quella del polso.',
+        telegramChannel: ''
+      },
+      copyTemplate: { ...DEFAULT_COPY_TEMPLATE },
+      auth: {
+        username: DEFAULT_ADMIN_USERNAME,
+        code: DEFAULT_ADMIN_CODE
+      },
+      materials: [],
+      items: []
+    };
+
+    // Stato effimero solo della vetrina/modalità cliente (non viene mai salvato)
+    let clientDraftSession = {
+      customType: 'Bracciale',
+      customSize: '',
+      customBraceletSize: '',
+      customNecklaceSize: '',
+      customNotes: '',
+      customNotesTouched: false,
+      customComposition: [],
+      detailSizeInput: '',
+      detailBraceletSizeInput: '',
+      detailNecklaceSizeInput: '',
+      cardSlideIndices: {},
+      setBraceletSlideIndices: {},
+      setNecklaceSlideIndices: {}
+    };
+
+    let currentTab = 'bracciali';
+    let clientMaterialCategory = 'stones';
+    let isAdminAuthenticated = false;
+    let isEditMode = false;
+    let adminSubTab = 'site';
+    let adminItemCategory = 'bracciali';
+    let adminMaterialCategory = 'stones';
+
+    let modalPhotos = [];
+    let modalComposition = [];
+    let modalMaterialSizes = [];
+    let modalMaterialPhoto = '';
+    let setCustomTitleTouched = false;
+
+    let pickerTargetContext = 'item'; // 'item' | 'custom'
+    let activePickerCategory = 'stones'; // 'stones' | 'hematite' | 'steel' | 'cord'
+    let activePickerSizeKey = '';
+    let returnToItemModalAfterMaterial = false;
+    let activeDetailItem = null;
+    let autoDownloadTriggeredOnClose = false;
+
+    function normalizeCopyTemplate(raw) {
+      const src = raw && typeof raw === 'object' ? raw : {};
+      return {
+        articleIntro: src.articleIntro !== undefined ? String(src.articleIntro) : DEFAULT_COPY_TEMPLATE.articleIntro,
+        customIntro: src.customIntro !== undefined ? String(src.customIntro) : DEFAULT_COPY_TEMPLATE.customIntro,
+        closingText: src.closingText !== undefined ? String(src.closingText) : DEFAULT_COPY_TEMPLATE.closingText,
+        defaultCustomNotes: src.defaultCustomNotes !== undefined ? String(src.defaultCustomNotes) : DEFAULT_COPY_TEMPLATE.defaultCustomNotes,
+        includeCategory: src.includeCategory !== undefined ? Boolean(src.includeCategory) : true,
+        includePrice: src.includePrice !== undefined ? Boolean(src.includePrice) : true,
+        includeMeasure: src.includeMeasure !== undefined ? Boolean(src.includeMeasure) : true,
+        includeComponents: src.includeComponents !== undefined ? Boolean(src.includeComponents) : true,
+        includeNotes: src.includeNotes !== undefined ? Boolean(src.includeNotes) : true
+      };
+    }
+
+    function applyCopyPlaceholderVars(templateText) {
+      const brand = (appState.config && appState.config.brandName) ? String(appState.config.brandName).trim() : 'RYUMA jewels';
+      return String(templateText || '').replace(/\{brand\}/gi, brand);
+    }
+
+    function buildTelegramShareUrl(text) {
+      const rawChannel = String((appState.config && appState.config.telegramChannel) || '').trim();
+      const encodedText = encodeURIComponent(String(text || ''));
+
+      if (!rawChannel) {
+        return `https://t.me/share/url?url=${encodeURIComponent(' ')}&text=${encodedText}`;
+      }
+
+      if (/^https?:\/\//i.test(rawChannel)) {
+        const cleanUrl = rawChannel.replace(/\/+$/, '');
+        if (/t\.me\/s\//i.test(cleanUrl)) {
+          const username = cleanUrl.split(/t\.me\/s\//i)[1].split(/[/?#]/)[0];
+          return `https://t.me/${encodeURIComponent(username)}?text=${encodedText}`;
+        }
+        return `${cleanUrl}?text=${encodedText}`;
+      }
+
+      const handle = rawChannel
+        .replace(/^@+/, '')
+        .replace(/^(https?:\/\/)?(www\.)?(t\.me|telegram\.me)\//i, '')
+        .split(/[/?#]/)[0]
+        .trim();
+
+      if (handle) {
+        return `https://t.me/${encodeURIComponent(handle)}?text=${encodedText}`;
+      }
+
+      return `https://t.me/share/url?text=${encodedText}`;
+    }
+
+    function forwardMessageToTelegram(text) {
+      const msg = String(text || '').trim();
+      if (!msg) return;
+      const url = buildTelegramShareUrl(msg);
+      const win = window.open(url, '_blank', 'noopener,noreferrer');
+      if (!win) {
+        window.location.href = url;
+      }
+      showToast('Apertura Telegram per l\'inoltro');
+    }
+
+    function normalizeMaterialType(rawType) {
+      if (rawType === 'hematite') return 'hematite';
+      if (rawType === 'steel') return 'steel';
+      if (rawType === 'cord') return 'cord';
+      return 'stones';
+    }
+
+    function getEntryCategory(entry) {
+      if (!entry) return 'stones';
+      if (entry.kind === 'cord') return 'cord';
+      const mat = getMaterialById(entry.materialId);
+      if (mat && mat.type) return normalizeMaterialType(mat.type);
+      return normalizeMaterialType(entry.type);
+    }
+
+    function groupCompositionByCategory(entries) {
+      const grouped = {
+        stones: [],
+        hematite: [],
+        steel: [],
+        cord: []
+      };
+      if (!Array.isArray(entries)) return grouped;
+
+      entries.forEach((entry, origIdx) => {
+        const cat = getEntryCategory(entry);
+        grouped[cat].push({ entry, origIdx });
+      });
+
+      return grouped;
+    }
+
+    function formatGroupedCompositionForMessage(entries) {
+      const grouped = groupCompositionByCategory(entries);
+      const lines = [];
+      MATERIAL_CATEGORIES.forEach(cat => {
+        const itemsInCat = grouped[cat];
+        if (itemsInCat && itemsInCat.length > 0) {
+          const names = itemsInCat.map(({ entry }) => formatCompLabel(entry));
+          lines.push(`  • ${MATERIAL_CATEGORY_LABELS[cat]}: ${names.join(', ')}`);
+        }
+      });
+      return lines;
+    }
+
+    function normalizeDefaultSizesList(rawSizes) {
+      if (!Array.isArray(rawSizes)) return [];
+      const set = new Set();
+      rawSizes.forEach(s => {
+        const clean = String(s || '').trim().toLowerCase();
+        const match = DEFAULT_COMPONENT_SIZES.find(def => def.toLowerCase() === clean);
+        if (match) {
+          set.add(match);
+        } else if (s && String(s).trim()) {
+          set.add(String(s).trim());
+        }
+      });
+      return Array.from(set).sort(compareSizesAsc);
+    }
+
+    function getMaterialAvailableSizeOptions(mat) {
+      const merged = new Set(DEFAULT_COMPONENT_SIZES);
+      if (mat && Array.isArray(mat.sizes)) {
+        mat.sizes.forEach(s => {
+          const trimmed = String(s || '').trim();
+          if (trimmed) merged.add(trimmed);
+        });
+      }
+      modalMaterialSizes.forEach(s => {
+        const trimmed = String(s || '').trim();
+        if (trimmed) merged.add(trimmed);
+      });
+      return Array.from(merged).sort(compareSizesAsc);
+    }
+
+    function compareByNameAsc(a, b) {
+      const nameA = String((a && (a.name ?? a.title)) || '').trim();
+      const nameB = String((b && (b.name ?? b.title)) || '').trim();
+      return nameA.localeCompare(nameB, 'it', { sensitivity: 'base', numeric: true });
+    }
+
+    function sortStateCollections() {
+      appState.materials.sort(compareByNameAsc);
+      appState.items.sort(compareByNameAsc);
+    }
+
+    function getSortedMaterials(category = null) {
+      const list = category
+        ? appState.materials.filter(m => normalizeMaterialType(m.type) === normalizeMaterialType(category))
+        : [...appState.materials];
+      return [...list].sort(compareByNameAsc);
+    }
+
+    function openAdminAuthModal() {
+      if (IS_CLIENT_LOCKED) return;
+      const modal = document.getElementById('admin-auth-modal');
+      const userInput = document.getElementById('admin-username-input');
+      const codeInput = document.getElementById('admin-code-input');
+      const err = document.getElementById('admin-auth-error');
+      if (!modal || !userInput || !codeInput) return;
+      userInput.value = '';
+      codeInput.value = '';
+      if (err) err.classList.add('hidden');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      setTimeout(() => userInput.focus(), 50);
+    }
+
+    function closeAdminAuthModal() {
+      const modal = document.getElementById('admin-auth-modal');
+      const err = document.getElementById('admin-auth-error');
+      if (!modal) return;
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      if (err) err.classList.add('hidden');
+    }
+
+    function submitAdminAuthForm(event) {
+      event.preventDefault();
+      if (IS_CLIENT_LOCKED) return;
+      const userInput = document.getElementById('admin-username-input');
+      const codeInput = document.getElementById('admin-code-input');
+      const err = document.getElementById('admin-auth-error');
+      const enteredUser = String((userInput && userInput.value) || '').trim();
+      const enteredCode = String((codeInput && codeInput.value) || '').trim();
+
+      const validUser = String((appState.auth && appState.auth.username) ?? DEFAULT_ADMIN_USERNAME).trim();
+      const validCode = String((appState.auth && appState.auth.code) ?? DEFAULT_ADMIN_CODE).trim();
+
+      if (enteredUser === validUser && enteredCode === validCode) {
+        isAdminAuthenticated = true;
+        closeAdminAuthModal();
+        updateAdminControlsVisibility();
+        toggleEditMode(true);
+        showToast('Accesso Admin sbloccato');
+      } else {
+        if (err) err.classList.remove('hidden');
+        if (codeInput) {
+          codeInput.select();
+          codeInput.focus();
+        }
+      }
+    }
+
+    function lockAdminSession() {
+      if (IS_CLIENT_LOCKED) return;
+      if (isAdminAuthoringActive()) {
+        commitAdminChange(false);
+      }
+      isAdminAuthenticated = false;
+      if (isEditMode) {
+        toggleEditMode(false);
+      }
+      updateAdminControlsVisibility();
+      showToast('Sessione Admin bloccata');
+    }
+
+    function updateAdminControlsVisibility() {
+      if (IS_CLIENT_LOCKED) return;
+      const unlockBtn = document.getElementById('btn-admin-unlock');
+      const authBar = document.getElementById('admin-authenticated-controls');
+      if (unlockBtn) {
+        unlockBtn.classList.toggle('hidden', isAdminAuthenticated);
+      }
+      if (authBar) {
+        authBar.classList.toggle('hidden', !isAdminAuthenticated);
+        authBar.classList.toggle('flex', isAdminAuthenticated);
+      }
+    }
+
+    function isAdminAuthoringActive() {
+      if (IS_CLIENT_LOCKED || !isAdminAuthenticated) return false;
+      if (isEditMode) return true;
+      const itemModal = document.getElementById('item-modal');
+      const setModal = document.getElementById('set-modal');
+      const matModal = document.getElementById('material-modal');
+      const pickerModal = document.getElementById('material-picker-modal');
+      const itemOpen = itemModal && !itemModal.classList.contains('hidden');
+      const setOpen = setModal && !setModal.classList.contains('hidden');
+      const matOpen = matModal && !matModal.classList.contains('hidden');
+      const pickerOpen = pickerModal && !pickerModal.classList.contains('hidden') && pickerTargetContext === 'item';
+      return Boolean(itemOpen || setOpen || matOpen || pickerOpen);
+    }
+
+    function cloneStatePayload() {
+      sortStateCollections();
+      return {
+        config: {
+          brandName: String(appState.config.brandName ?? ''),
+          tagline: String(appState.config.tagline ?? ''),
+          presentation: String(appState.config.presentation ?? ''),
+          footerText: String(appState.config.footerText ?? ''),
+          compositionBtnLabel: String(appState.config.compositionBtnLabel ?? 'Composizione'),
+          braceletSizeNote: String(appState.config.braceletSizeNote ?? ''),
+          telegramChannel: String(appState.config.telegramChannel ?? '')
+        },
+        copyTemplate: normalizeCopyTemplate(appState.copyTemplate),
+        auth: {
+          username: String((appState.auth && appState.auth.username) ?? DEFAULT_ADMIN_USERNAME),
+          code: String((appState.auth && appState.auth.code) ?? DEFAULT_ADMIN_CODE)
+        },
+        materials: appState.materials.map(m => {
+          const type = normalizeMaterialType(m.type);
+          return {
+            id: String(m.id || ''),
+            name: String(m.name || ''),
+            type,
+            sizes: type === 'cord' ? [] : normalizeDefaultSizesList(m.sizes),
+            image: String(m.image || '')
+          };
+        }),
+        items: appState.items.map(it => {
+          if (it.category === 'set') {
+            return {
+              id: String(it.id || ''),
+              category: 'set',
+              title: String(it.title || ''),
+              braceletId: String(it.braceletId || ''),
+              necklaceId: String(it.necklaceId || ''),
+              price: formatEuroPrice(it.price)
+            };
+          }
+          return {
+            id: String(it.id || ''),
+            category: it.category === 'collane' ? 'collane' : 'bracciali',
+            title: String(it.title || ''),
+            price: formatEuroPrice(it.price),
+            composition: Array.isArray(it.composition)
+              ? it.composition.map(c => ({ ...c }))
+              : [],
+            images: Array.isArray(it.images) ? [...it.images] : []
+          };
+        })
+      };
+    }
+
+    function syncAdminDraftInputsToState() {
+      if (IS_CLIENT_LOCKED) return;
+
+      const fieldMap = [
+        ['edit-brand-name', 'brandName'],
+        ['edit-telegram-channel', 'telegramChannel'],
+        ['edit-tagline', 'tagline'],
+        ['edit-comp-btn-label', 'compositionBtnLabel'],
+        ['edit-bracelet-size-note', 'braceletSizeNote'],
+        ['edit-presentation', 'presentation'],
+        ['edit-footer-text', 'footerText']
+      ];
+
+      fieldMap.forEach(([elId, cfgKey]) => {
+        const el = document.getElementById(elId);
+        if (el) {
+          appState.config[cfgKey] = el.value;
+        }
+      });
+
+      const copyTextFields = [
+        ['edit-copy-article-intro', 'articleIntro'],
+        ['edit-copy-custom-intro', 'customIntro'],
+        ['edit-copy-closing', 'closingText'],
+        ['edit-copy-default-notes', 'defaultCustomNotes']
+      ];
+      copyTextFields.forEach(([elId, tplKey]) => {
+        const el = document.getElementById(elId);
+        if (el) {
+          appState.copyTemplate[tplKey] = el.value;
+        }
+      });
+
+      const copyFlagFields = [
+        ['chk-copy-include-category', 'includeCategory'],
+        ['chk-copy-include-price', 'includePrice'],
+        ['chk-copy-include-measure', 'includeMeasure'],
+        ['chk-copy-include-components', 'includeComponents'],
+        ['chk-copy-include-notes', 'includeNotes']
+      ];
+      copyFlagFields.forEach(([elId, flagKey]) => {
+        const el = document.getElementById(elId);
+        if (el) {
+          appState.copyTemplate[flagKey] = Boolean(el.checked);
+        }
+      });
+
+      const userEl = document.getElementById('edit-admin-username');
+      const codeEl = document.getElementById('edit-admin-code');
+      if (userEl) appState.auth.username = userEl.value;
+      if (codeEl) appState.auth.code = codeEl.value;
+
+      const itemModal = document.getElementById('item-modal');
+      const itemIdInput = document.getElementById('form-item-id');
+      if (itemModal && !itemModal.classList.contains('hidden') && itemIdInput && itemIdInput.value) {
+        const titleVal = document.getElementById('form-title').value.trim();
+        const catVal = document.getElementById('form-category').value;
+        const priceVal = formatEuroPrice(document.getElementById('form-price').value);
+        const idx = appState.items.findIndex(i => i.id === itemIdInput.value);
+        if (idx !== -1 && titleVal) {
+          appState.items[idx] = {
+            ...appState.items[idx],
+            title: titleVal,
+            category: catVal,
+            price: priceVal,
+            composition: [...modalComposition],
+            images: modalPhotos.length
+              ? [...modalPhotos]
+              : [`https://placehold.co/800x600/18181b/fbbf24?text=${encodeURIComponent(titleVal)}`]
+          };
+        }
+      }
+
+      const setModal = document.getElementById('set-modal');
+      const setIdInput = document.getElementById('form-set-id');
+      if (setModal && !setModal.classList.contains('hidden') && setIdInput && setIdInput.value) {
+        const bId = document.getElementById('form-set-bracelet').value;
+        const nId = document.getElementById('form-set-necklace').value;
+        const pVal = formatEuroPrice(document.getElementById('form-set-price').value);
+        const rawTitle = document.getElementById('form-set-title').value.trim();
+        const idx = appState.items.findIndex(i => i.id === setIdInput.value);
+        if (idx !== -1 && bId && nId) {
+          const bItem = appState.items.find(i => i.id === bId && i.category === 'bracciali');
+          const nItem = appState.items.find(i => i.id === nId && i.category === 'collane');
+          const defaultName = `Set ${bItem ? bItem.title : 'Bracciale'} + ${nItem ? nItem.title : 'Collana'}`;
+          appState.items[idx] = {
+            ...appState.items[idx],
+            category: 'set',
+            title: rawTitle || defaultName,
+            braceletId: bId,
+            necklaceId: nId,
+            price: pVal
+          };
+        }
+      }
+
+      const matModal = document.getElementById('material-modal');
+      const matIdInput = document.getElementById('form-mat-id');
+      if (matModal && !matModal.classList.contains('hidden') && matIdInput && matIdInput.value) {
+        const mName = document.getElementById('form-mat-name').value.trim();
+        const mType = normalizeMaterialType(document.getElementById('form-mat-type').value);
+        const idx = appState.materials.findIndex(m => m.id === matIdInput.value);
+        if (idx !== -1 && mName) {
+          const mSizes = mType === 'cord'
+            ? []
+            : normalizeDefaultSizesList(modalMaterialSizes.length ? modalMaterialSizes : ['8 mm']);
+          appState.materials[idx] = {
+            ...appState.materials[idx],
+            name: mName,
+            type: mType,
+            sizes: mSizes,
+            image: modalMaterialPhoto || `https://placehold.co/600x450/18181b/fbbf24?text=${encodeURIComponent(mName)}`
+          };
+        }
+      }
+
+      sortStateCollections();
+    }
+
+    function applyParsedState(parsed) {
+      if (!parsed || typeof parsed !== 'object') return;
+      if (parsed.config) {
+        const { whatsapp: _ignoredWa, ...restConfig } = parsed.config;
+        appState.config = { ...appState.config, ...restConfig };
+      }
+      if (parsed.copyTemplate && typeof parsed.copyTemplate === 'object') {
+        appState.copyTemplate = normalizeCopyTemplate(parsed.copyTemplate);
+      }
+      if (parsed.auth && typeof parsed.auth === 'object') {
+        appState.auth = {
+          username: parsed.auth.username !== undefined ? String(parsed.auth.username) : DEFAULT_ADMIN_USERNAME,
+          code: parsed.auth.code !== undefined ? String(parsed.auth.code) : DEFAULT_ADMIN_CODE
+        };
+      }
+      if (Array.isArray(parsed.materials)) {
+        appState.materials = parsed.materials.map(m => {
+          const type = normalizeMaterialType(m.type);
+          const normalized = normalizeDefaultSizesList(m.sizes);
+          const sizes = type === 'cord'
+            ? []
+            : (normalized.length ? normalized : ['8 mm']);
+          return { ...m, type, sizes };
+        });
+      }
+      if (Array.isArray(parsed.items)) {
+        appState.items = parsed.items.map(it => ({
+          ...it,
+          price: formatEuroPrice(it.price),
+          composition: Array.isArray(it.composition) ? [...it.composition] : [],
+          images: Array.isArray(it.images) ? [...it.images] : []
+        }));
+      }
+      sortStateCollections();
+    }
+
+    function applyClientLockedUi() {
+      if (!IS_CLIENT_LOCKED) return;
+      [
+        '#admin-icon-bar',
+        '#admin-auth-modal',
+        '#admin-page',
+        '#item-modal',
+        '#set-modal',
+        '#material-modal'
+      ].forEach(sel => {
+        const el = document.querySelector(sel);
+        if (el) el.remove();
+      });
+    }
+
+    function loadInitialData() {
+      try {
+        const dataEl = document.getElementById('ryuma-data');
+        if (dataEl && dataEl.textContent.trim()) {
+          const embeddedState = JSON.parse(dataEl.textContent);
+          applyParsedState(embeddedState);
+        }
+      } catch (err) {
+        console.error('Errore caricamento dati incorporati:', err);
+      }
+
+      if (!IS_CLIENT_LOCKED) {
+        try {
+          const saved = localStorage.getItem(STORAGE_ADMIN_AUTOSAVE_KEY);
+          if (saved) {
+            const parsedSaved = JSON.parse(saved);
+            applyParsedState(parsedSaved);
+          }
+        } catch (err) {
+          console.error('Errore caricamento salvataggio automatico Admin:', err);
+        }
+      }
+
+      sortStateCollections();
+      applyClientLockedUi();
+    }
+
+    function commitAdminChange(triggerFileDownloadOnClose = false) {
+      if (IS_CLIENT_LOCKED) return;
+      syncAdminDraftInputsToState();
+      const snapshot = cloneStatePayload();
+      try {
+        localStorage.setItem(STORAGE_ADMIN_AUTOSAVE_KEY, JSON.stringify(snapshot));
+      } catch (err) {
+        console.error('Errore salvataggio locale Admin:', err);
+      }
+      if (triggerFileDownloadOnClose && !autoDownloadTriggeredOnClose) {
+        autoDownloadTriggeredOnClose = true;
+        try {
+          downloadHtmlFile('ryuma_admin.html', buildExportHtml(false, snapshot));
+        } catch (err) {
+          console.error('Errore download automatico Admin alla chiusura:', err);
+        }
+      }
+    }
+
+    let toastTimer = null;
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const text = document.getElementById('toast-text');
+      if (!toast || !text) return;
+      text.textContent = msg;
+      toast.classList.remove('opacity-0', 'translate-y-2');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-2');
+      }, 2600);
+    }
+
+    function esc(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function renderSizeWithUnitMm(sizeStr) {
+      const s = String(sizeStr || '').trim();
+      const match = s.match(/^(.*?)\s*(mm)$/i);
+      if (match) {
+        return `${esc(match[1])} <span class="unit-mm">mm</span>`;
+      }
+      return esc(s);
+    }
+
+    function formatEuroPrice(rawPrice) {
+      const val = String(rawPrice || '').trim();
+      if (!val || /^su richiesta$/i.test(val)) return '';
+      const cleaned = val.replace(/^€\s*|\s*€$|\beur\b/gi, '').trim();
+      if (!cleaned) return '';
+      return `${cleaned} €`;
+    }
+
+    function formatCmMeasure(rawMeasure) {
+      const val = String(rawMeasure || '').trim();
+      if (!val) return '';
+      const withoutUnit = val.replace(/\s*cm\s*/gi, '').trim();
+      if (!withoutUnit) return '';
+      return `${withoutUnit} cm`;
+    }
+
+    function getMaterialById(id) {
+      return appState.materials.find(m => m.id === id);
+    }
+
+    function getCordOptions() {
+      const fromMaterials = getSortedMaterials('cord')
+        .map(m => (m.name || '').trim())
+        .filter(Boolean);
+      return fromMaterials.length
+        ? fromMaterials
+        : ["Cavetto d'acciaio intrecciato", "Catenina forzatina d'acciaio"];
+    }
+
+    function parseSizeNumeric(sizeStr) {
+      const raw = String(sizeStr || '').replace(',', '.');
+      const match = raw.match(/(\d+(?:\.\d+)?)/);
+      if (!match) return Number.POSITIVE_INFINITY;
+      let val = parseFloat(match[1]);
+      if (/\bcm\b/i.test(raw) && !/\bmm\b/i.test(raw)) {
+        val = val * 10;
+      }
+      return val;
+    }
+
+    function compareSizesAsc(a, b) {
+      const numA = parseSizeNumeric(a);
+      const numB = parseSizeNumeric(b);
+      if (numA !== numB) return numA - numB;
+      return String(a).localeCompare(String(b), 'it', { numeric: true });
+    }
+
+    function normalizeSizeKey(sizeStr) {
+      const s = String(sizeStr || '').trim();
+      return s || 'Senza misura';
+    }
+
+    function getSortedSizeSectionsForType(type) {
+      const map = new Map();
+      getSortedMaterials(type).forEach(mat => {
+        const sizes = (Array.isArray(mat.sizes) && mat.sizes.length) ? mat.sizes : ['8 mm'];
+        sizes.forEach(sz => {
+          const key = normalizeSizeKey(sz);
+          if (!map.has(key)) {
+            map.set(key, { key, label: key, materials: [] });
+          }
+          const bucket = map.get(key);
+          if (!bucket.materials.some(existing => existing.id === mat.id)) {
+            bucket.materials.push(mat);
+          }
+        });
+      });
+
+      const sections = Array.from(map.values()).sort((s1, s2) => compareSizesAsc(s1.label, s2.label));
+      sections.forEach(sec => sec.materials.sort(compareByNameAsc));
+      return sections;
+    }
+
+    function getCompUniqueKey(entry) {
+      if (!entry) return '';
+      if (entry.kind === 'cord') {
+        return `cord::${entry.cordName || ''}`;
+      }
+      return `comp::${entry.materialId || ''}::${normalizeSizeKey(entry.size)}`;
+    }
+
+    function formatCompLabel(entry) {
+      if (!entry) return '';
+      if (entry.kind === 'cord') {
+        return entry.cordName || 'Cavetto base';
+      }
+      const mat = getMaterialById(entry.materialId);
+      const name = mat ? mat.name : 'Componente';
+      const sz = (entry.size || '').trim();
+      return sz ? `${name} (${sz})` : name;
+    }
+
+    function renderCompLabelHtml(entry) {
+      if (!entry) return '';
+      if (entry.kind === 'cord') {
+        return esc(entry.cordName || 'Cavetto base');
+      }
+      const mat = getMaterialById(entry.materialId);
+      const name = mat ? mat.name : 'Componente';
+      const sz = (entry.size || '').trim();
+      return sz ? `${esc(name)} (${renderSizeWithUnitMm(sz)})` : esc(name);
+    }
+
+    function getItemPhotosList(item) {
+      if (!item) return [];
+      if (Array.isArray(item.images) && item.images.length) {
+        return item.images.filter(Boolean);
+      }
+      const label = item.title || 'RYUMA';
+      return [`https://placehold.co/800x600/18181b/fbbf24?text=${encodeURIComponent(label)}`];
+    }
+
+    function resolveSetItem(setItem) {
+      const bracelet = appState.items.find(i => i.id === setItem.braceletId && i.category === 'bracciali');
+      const necklace = appState.items.find(i => i.id === setItem.necklaceId && i.category === 'collane');
+
+      const bTitle = bracelet ? bracelet.title : 'Bracciale';
+      const nTitle = necklace ? necklace.title : 'Collana';
+      const defaultTitle = `Set ${bTitle} + ${nTitle}`;
+      const title = (setItem.title && String(setItem.title).trim()) ? String(setItem.title).trim() : defaultTitle;
+
+      const braceletImages = bracelet
+        ? getItemPhotosList(bracelet)
+        : [`https://placehold.co/800x600/18181b/fbbf24?text=${encodeURIComponent(bTitle)}`];
+      const necklaceImages = necklace
+        ? getItemPhotosList(necklace)
+        : [`https://placehold.co/800x600/18181b/ffffff?text=${encodeURIComponent(nTitle)}`];
+
+      const composition = [];
+      const seen = new Set();
+      const pushUnique = (entry) => {
+        const key = getCompUniqueKey(entry);
+        if (key && !seen.has(key)) {
+          seen.add(key);
+          composition.push(entry);
+        }
+      };
+
+      if (bracelet && Array.isArray(bracelet.composition)) {
+        bracelet.composition.forEach(pushUnique);
+      }
+      if (necklace && Array.isArray(necklace.composition)) {
+        necklace.composition.forEach(pushUnique);
+      }
+
+      return {
+        ...setItem,
+        id: setItem.id,
+        category: 'set',
+        title,
+        price: formatEuroPrice(setItem.price),
+        braceletId: setItem.braceletId || '',
+        necklaceId: setItem.necklaceId || '',
+        braceletTitle: bTitle,
+        necklaceTitle: nTitle,
+        braceletImages,
+        necklaceImages,
+        composition
+      };
+    }
+
+    function getDisplayCatalogItems(category) {
+      if (category === 'set') {
+        return appState.items
+          .filter(i => i.category === 'set')
+          .map(resolveSetItem)
+          .sort(compareByNameAsc);
+      }
+      return appState.items
+        .filter(i => i.category === category)
+        .sort(compareByNameAsc);
+    }
+
+    function renderBraceletNoteElement(el, rawText) {
+      if (!el) return;
+      const txt = String(rawText || '').trim();
+      if (!txt) {
+        el.textContent = '';
+        el.classList.add('hidden');
+        return;
+      }
+      el.classList.remove('hidden');
+      const parts = txt.split(/(cm)/gi);
+      el.innerHTML = parts.map(part => {
+        if (/^cm$/i.test(part)) {
+          return `<span class="unit-cm">cm</span>`;
+        }
+        return esc(part);
+      }).join('');
+    }
+
+    function renderCustomBraceletNote() {
+      const typeEl = document.getElementById('custom-type');
+      const noteEl = document.getElementById('custom-bracelet-note');
+      const setNoteEl = document.getElementById('custom-set-bracelet-note');
+      if (!typeEl) return;
+
+      if (typeEl.value === 'Bracciale') {
+        renderBraceletNoteElement(noteEl, appState.config.braceletSizeNote);
+        if (setNoteEl) {
+          setNoteEl.textContent = '';
+          setNoteEl.classList.add('hidden');
+        }
+      } else if (typeEl.value === 'Set coordinato') {
+        if (noteEl) {
+          noteEl.textContent = '';
+          noteEl.classList.add('hidden');
+        }
+        renderBraceletNoteElement(setNoteEl, appState.config.braceletSizeNote);
+      } else {
+        if (noteEl) {
+          noteEl.textContent = '';
+          noteEl.classList.add('hidden');
+        }
+        if (setNoteEl) {
+          setNoteEl.textContent = '';
+          setNoteEl.classList.add('hidden');
+        }
+      }
+    }
+
+    function renderCustomMeasureFields() {
+      const typeEl = document.getElementById('custom-type');
+      const singleWrap = document.getElementById('custom-single-size-wrap');
+      const setWrap = document.getElementById('custom-set-sizes-wrap');
+      if (!typeEl || !singleWrap || !setWrap) return;
+
+      const isSet = typeEl.value === 'Set coordinato';
+      singleWrap.classList.toggle('hidden', isSet);
+      setWrap.classList.toggle('hidden', !isSet);
+      renderCustomBraceletNote();
+    }
+
+    function renderCopyTemplatePreview() {
+      const previewEl = document.getElementById('copy-template-preview');
+      if (!previewEl) return;
+      const tpl = normalizeCopyTemplate(appState.copyTemplate);
+      const channelLabel = String(appState.config.telegramChannel || '').trim();
+      const intro = applyCopyPlaceholderVars(tpl.articleIntro).trim();
+      const lines = [];
+      if (channelLabel) lines.push(`[Canale Telegram: ${channelLabel}]`);
+      if (intro) lines.push(intro);
+      if (tpl.includeCategory) {
+        lines.push('- Bracciale: Ryuma Marble & Moss');
+      } else {
+        lines.push('- Ryuma Marble & Moss');
+      }
+      if (tpl.includePrice) lines.push('- Prezzo indicativo: 35 €');
+      if (tpl.includeMeasure) lines.push('- Misura desiderata: 19 cm');
+      if (tpl.includeComponents) {
+        lines.push('- Componenti:\n  • Pietre: Howlite Bianca (8 mm), Giada Thailandese (8 mm)\n  • Acciaio: Acciaio Inox 316L (6 mm)');
+      }
+      const closing = applyCopyPlaceholderVars(tpl.closingText).trim();
+      if (closing) lines.push(closing);
+      previewEl.textContent = lines.join('\n');
+    }
+
+    function renderHeaderAndIntro() {
+      const { brandName, tagline, presentation, footerText, compositionBtnLabel, braceletSizeNote, telegramChannel } = appState.config;
+      const tpl = normalizeCopyTemplate(appState.copyTemplate);
+      document.title = `${brandName || 'RYUMA jewels'} | Gioielli Artigianali`;
+
+      const viewBrand = document.getElementById('view-brand');
+      const viewTagline = document.getElementById('view-tagline');
+      const viewPres = document.getElementById('view-presentation');
+      const footerBrand = document.getElementById('footer-brand');
+      const viewFooterText = document.getElementById('view-footer-text');
+      const footerSep = document.getElementById('footer-text-separator');
+      const detailCompBtnText = document.getElementById('detail-comp-btn-text');
+
+      if (viewBrand) viewBrand.textContent = brandName || 'RYUMA jewels';
+      if (viewTagline) viewTagline.textContent = tagline || '';
+      if (viewPres) viewPres.textContent = presentation || '';
+      if (footerBrand) footerBrand.textContent = brandName || 'RYUMA jewels';
+
+      const cleanFooter = String(footerText || '').trim();
+      if (viewFooterText) {
+        if (cleanFooter) {
+          const parts = cleanFooter.split(/(cm)/gi);
+          viewFooterText.innerHTML = parts.map(part => {
+            if (/^cm$/i.test(part)) return `<span class="unit-cm">cm</span>`;
+            return esc(part);
+          }).join('');
+          viewFooterText.classList.remove('hidden');
+          if (footerSep) footerSep.classList.remove('hidden');
+        } else {
+          viewFooterText.textContent = '';
+          viewFooterText.classList.add('hidden');
+          if (footerSep) footerSep.classList.add('hidden');
+        }
+      }
+
+      if (detailCompBtnText) {
+        detailCompBtnText.textContent = (compositionBtnLabel && compositionBtnLabel.trim()) || 'Composizione';
+      }
+
+      const customNotesEl = document.getElementById('custom-notes');
+      if (customNotesEl && !clientDraftSession.customNotesTouched && document.activeElement !== customNotesEl) {
+        customNotesEl.value = tpl.defaultCustomNotes || '';
+        clientDraftSession.customNotes = customNotesEl.value;
+      }
+
+      renderCustomMeasureFields();
+
+      if (activeDetailItem) {
+        const isSet = activeDetailItem.category === 'set';
+        const showBraceletNote = activeDetailItem.category === 'bracciali' || isSet;
+        const targetNoteEl = isSet
+          ? document.getElementById('detail-set-bracelet-note')
+          : document.getElementById('detail-bracelet-note');
+        if (targetNoteEl) {
+          if (showBraceletNote) {
+            renderBraceletNoteElement(targetNoteEl, braceletSizeNote);
+          } else {
+            targetNoteEl.textContent = '';
+            targetNoteEl.classList.add('hidden');
+          }
+        }
+      }
+
+      if (!IS_CLIENT_LOCKED) {
+        const inBrand = document.getElementById('edit-brand-name');
+        const inTgChannel = document.getElementById('edit-telegram-channel');
+        const inTag = document.getElementById('edit-tagline');
+        const inPres = document.getElementById('edit-presentation');
+        const inFooter = document.getElementById('edit-footer-text');
+        const inCompLabel = document.getElementById('edit-comp-btn-label');
+        const inBraceletNote = document.getElementById('edit-bracelet-size-note');
+        const inAdminUser = document.getElementById('edit-admin-username');
+        const inAdminCode = document.getElementById('edit-admin-code');
+
+        if (inBrand && document.activeElement !== inBrand) inBrand.value = brandName || '';
+        if (inTgChannel && document.activeElement !== inTgChannel) inTgChannel.value = telegramChannel || '';
+        if (inTag && document.activeElement !== inTag) inTag.value = tagline || '';
+        if (inPres && document.activeElement !== inPres) inPres.value = presentation || '';
+        if (inFooter && document.activeElement !== inFooter) inFooter.value = footerText || '';
+        if (inCompLabel && document.activeElement !== inCompLabel) inCompLabel.value = compositionBtnLabel || 'Composizione';
+        if (inBraceletNote && document.activeElement !== inBraceletNote) inBraceletNote.value = braceletSizeNote || '';
+        if (inAdminUser && document.activeElement !== inAdminUser) inAdminUser.value = (appState.auth && appState.auth.username) ?? DEFAULT_ADMIN_USERNAME;
+        if (inAdminCode && document.activeElement !== inAdminCode) inAdminCode.value = (appState.auth && appState.auth.code) ?? DEFAULT_ADMIN_CODE;
+
+        const inArticleIntro = document.getElementById('edit-copy-article-intro');
+        const inCustomIntro = document.getElementById('edit-copy-custom-intro');
+        const inClosing = document.getElementById('edit-copy-closing');
+        const inDefNotes = document.getElementById('edit-copy-default-notes');
+        const chkCat = document.getElementById('chk-copy-include-category');
+        const chkPrice = document.getElementById('chk-copy-include-price');
+        const chkMeasure = document.getElementById('chk-copy-include-measure');
+        const chkComps = document.getElementById('chk-copy-include-components');
+        const chkNotes = document.getElementById('chk-copy-include-notes');
+
+        if (inArticleIntro && document.activeElement !== inArticleIntro) inArticleIntro.value = tpl.articleIntro;
+        if (inCustomIntro && document.activeElement !== inCustomIntro) inCustomIntro.value = tpl.customIntro;
+        if (inClosing && document.activeElement !== inClosing) inClosing.value = tpl.closingText;
+        if (inDefNotes && document.activeElement !== inDefNotes) inDefNotes.value = tpl.defaultCustomNotes;
+        if (chkCat) chkCat.checked = tpl.includeCategory;
+        if (chkPrice) chkPrice.checked = tpl.includePrice;
+        if (chkMeasure) chkMeasure.checked = tpl.includeMeasure;
+        if (chkComps) chkComps.checked = tpl.includeComponents;
+        if (chkNotes) chkNotes.checked = tpl.includeNotes;
+
+        renderCopyTemplatePreview();
+      }
+    }
+
+    function onConfigInput(key, val) {
+      if (IS_CLIENT_LOCKED) return;
+      appState.config[key] = val;
+      renderHeaderAndIntro();
+      if (key === 'compositionBtnLabel') {
+        renderCatalog();
+      }
+      commitAdminChange(false);
+    }
+
+    function onCopyTemplateInput(key, val) {
+      if (IS_CLIENT_LOCKED) return;
+      appState.copyTemplate = normalizeCopyTemplate({
+        ...appState.copyTemplate,
+        [key]: val
+      });
+      if (key === 'defaultCustomNotes' && !clientDraftSession.customNotesTouched) {
+        const customNotesEl = document.getElementById('custom-notes');
+        if (customNotesEl) customNotesEl.value = val;
+        clientDraftSession.customNotes = val;
+      }
+      renderCopyTemplatePreview();
+      commitAdminChange(false);
+    }
+
+    function onCopyFlagChange(key, checked) {
+      if (IS_CLIENT_LOCKED) return;
+      appState.copyTemplate = normalizeCopyTemplate({
+        ...appState.copyTemplate,
+        [key]: Boolean(checked)
+      });
+      renderCopyTemplatePreview();
+      commitAdminChange(false);
+    }
+
+    function onAuthConfigInput(key, val) {
+      if (IS_CLIENT_LOCKED || !isAdminAuthenticated) return;
+      if (!appState.auth) {
+        appState.auth = { username: DEFAULT_ADMIN_USERNAME, code: DEFAULT_ADMIN_CODE };
+      }
+      appState.auth[key] = val;
+      commitAdminChange(false);
+    }
+
+    function toggleEditMode(forceState) {
+      if (IS_CLIENT_LOCKED) return;
+      if (!isAdminAuthenticated && forceState !== false) {
+        openAdminAuthModal();
+        return;
+      }
+      isEditMode = typeof forceState === 'boolean' ? forceState : !isEditMode;
+
+      const btn = document.getElementById('btn-edit-mode');
+      const iconPencil = document.getElementById('icon-edit-pencil');
+      const iconDone = document.getElementById('icon-edit-done');
+      const clientNav = document.getElementById('client-nav');
+      const homeView = document.getElementById('home-view');
+      const adminPage = document.getElementById('admin-page');
+
+      if (isEditMode) {
+        btn.classList.remove('bg-zinc-900', 'text-amber-400', 'border-amber-400/70');
+        btn.classList.add('bg-amber-400', 'text-zinc-950', 'border-amber-400');
+        iconPencil.classList.add('hidden');
+        iconDone.classList.remove('hidden');
+        if (clientNav) clientNav.classList.add('hidden');
+        if (homeView) homeView.classList.add('hidden');
+        if (adminPage) adminPage.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        selectAdminSubTab(adminSubTab);
+      } else {
+        commitAdminChange(false);
+        btn.classList.add('bg-zinc-900', 'text-amber-400', 'border-amber-400/70');
+        btn.classList.remove('bg-amber-400', 'text-zinc-950', 'border-amber-400');
+        iconPencil.classList.remove('hidden');
+        iconDone.classList.add('hidden');
+        if (clientNav) clientNav.classList.remove('hidden');
+        if (homeView) homeView.classList.remove('hidden');
+        if (adminPage) adminPage.classList.add('hidden');
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        selectTab(currentTab);
+      }
+    }
+
+    function selectAdminSubTab(subTab) {
+      if (IS_CLIENT_LOCKED) return;
+      adminSubTab = subTab;
+
+      const tabs = ['site', 'items', 'materials'];
+      tabs.forEach(t => {
+        const el = document.getElementById(`admin-subtab-${t}`);
+        if (!el) return;
+        if (t === subTab) {
+          el.className = 'py-2.5 px-2 rounded-xl text-[11px] font-bold text-center transition bg-amber-400 text-zinc-950';
+        } else {
+          el.className = 'py-2.5 px-2 rounded-xl text-[11px] font-bold text-center transition bg-zinc-950 text-slate-300 border border-zinc-800 hover:text-white';
+        }
+      });
+
+      document.getElementById('admin-area-site').classList.toggle('hidden', subTab !== 'site');
+      document.getElementById('admin-area-items').classList.toggle('hidden', subTab !== 'items');
+      document.getElementById('admin-area-materials').classList.toggle('hidden', subTab !== 'materials');
+
+      if (subTab === 'items') {
+        selectAdminItemCategory(adminItemCategory);
+      } else if (subTab === 'materials') {
+        selectAdminMaterialCategory(adminMaterialCategory);
+      } else {
+        renderHeaderAndIntro();
+      }
+    }
+
+    function selectAdminItemCategory(cat) {
+      if (IS_CLIENT_LOCKED) return;
+      adminItemCategory = cat;
+
+      ['bracciali', 'collane', 'set'].forEach(c => {
+        const btn = document.getElementById(`admin-cat-${c}`);
+        if (!btn) return;
+        if (c === cat) {
+          btn.className = 'py-2 px-2 rounded-lg text-[11px] font-bold transition bg-amber-400 text-zinc-950';
+        } else {
+          btn.className = 'py-2 px-2 rounded-lg text-[11px] font-bold transition bg-zinc-900 text-slate-300 border border-zinc-800 hover:text-white';
+        }
+      });
+
+      const titleMap = {
+        bracciali: 'Bracciali',
+        collane: 'Collane',
+        set: 'Set'
+      };
+      const addLabelMap = {
+        bracciali: '+ Nuovo bracciale',
+        collane: '+ Nuova collana',
+        set: '+ Nuovo set'
+      };
+
+      document.getElementById('admin-items-section-title').textContent = titleMap[cat] || cat;
+      document.getElementById('btn-admin-add-item').textContent = addLabelMap[cat] || '+ Nuovo';
+
+      renderAdminItemsList();
+    }
+
+    function selectAdminMaterialCategory(cat) {
+      if (IS_CLIENT_LOCKED) return;
+      adminMaterialCategory = normalizeMaterialType(cat);
+
+      MATERIAL_CATEGORIES.forEach(c => {
+        const btn = document.getElementById(`admin-mat-${c}`);
+        if (!btn) return;
+        if (c === adminMaterialCategory) {
+          btn.className = 'py-2 px-2 rounded-lg text-[11px] font-bold transition bg-amber-400 text-zinc-950';
+        } else {
+          btn.className = 'py-2 px-2 rounded-lg text-[11px] font-bold transition bg-zinc-900 text-slate-300 border border-zinc-800 hover:text-white';
+        }
+      });
+
+      const addLabelMap = {
+        stones: '+ Nuova pietra',
+        hematite: '+ Nuova ematite',
+        steel: '+ Nuovo acciaio',
+        cord: '+ Nuovo cavetto base'
+      };
+
+      document.getElementById('admin-materials-section-title').textContent = MATERIAL_CATEGORY_LABELS[adminMaterialCategory];
+      document.getElementById('btn-admin-add-material').textContent = addLabelMap[adminMaterialCategory];
+
+      renderAdminMaterialsList();
+    }
+
+    function renderAdminItemsList() {
+      const container = document.getElementById('admin-items-list');
+      if (!container) return;
+
+      const list = getDisplayCatalogItems(adminItemCategory);
+      if (list.length === 0) {
+        container.innerHTML = `<div class="text-center py-6 border border-dashed border-zinc-800 rounded-xl text-xs text-slate-300">Nessun articolo in questa sezione.</div>`;
+        return;
+      }
+
+      container.innerHTML = list.map(item => {
+        const editCall = item.category === 'set'
+          ? `openEditSetModal('${esc(item.id)}')`
+          : `openEditItemModal('${esc(item.id)}')`;
+        const priceLabel = formatEuroPrice(item.price);
+
+        const mediaBoxHtml = item.category === 'set'
+          ? `
+            <div class="w-full max-w-sm rounded-xl overflow-hidden bg-zinc-950 border border-zinc-700 divide-y divide-zinc-800">
+              <div class="p-2 space-y-1">
+                <span class="block text-[10px] font-bold text-amber-400">Bracciale: ${esc(item.braceletTitle)}</span>
+                <img src="${esc(item.braceletImages[0])}" alt="${esc(item.braceletTitle)}" onerror="this.src='https://placehold.co/600x450/18181b/ffffff?text=RYUMA'" class="set-half-photo rounded-lg">
+              </div>
+              <div class="p-2 space-y-1">
+                <span class="block text-[10px] font-bold text-amber-400">Collana: ${esc(item.necklaceTitle)}</span>
+                <img src="${esc(item.necklaceImages[0])}" alt="${esc(item.necklaceTitle)}" onerror="this.src='https://placehold.co/600x450/18181b/ffffff?text=RYUMA'" class="set-half-photo rounded-lg">
+              </div>
+            </div>
+          `
+          : `
+            <div class="w-full max-w-sm rounded-xl overflow-hidden bg-zinc-950 border border-zinc-700">
+              <img src="${esc(getItemPhotosList(item)[0])}" alt="${esc(item.title)}" onerror="this.src='https://placehold.co/600x450/18181b/ffffff?text=RYUMA'" class="photo-natural">
+            </div>
+          `;
+
+        return `
+          <div class="p-3 rounded-xl bg-zinc-900 border border-zinc-800 space-y-2.5">
+            ${mediaBoxHtml}
+
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+              <div class="min-w-0 flex-1 space-y-1">
+                <p class="text-sm sm:text-base font-bold text-white leading-snug break-words">${esc(item.title)}</p>
+                ${priceLabel ? `<p class="text-xs font-bold text-amber-400">${esc(priceLabel)}</p>` : ''}
+              </div>
+              <button type="button" onclick="${editCall}" class="px-4 py-2 rounded-xl bg-amber-400 text-zinc-950 text-xs font-bold hover:bg-amber-300 transition shrink-0 self-start sm:self-center">
+                Modifica
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderAdminMaterialsList() {
+      const container = document.getElementById('admin-materials-list');
+      if (!container) return;
+
+      const filtered = getSortedMaterials(adminMaterialCategory);
+      if (filtered.length === 0) {
+        container.innerHTML = `<div class="text-center py-6 border border-dashed border-zinc-800 rounded-xl text-xs text-slate-300">Nessun componente in questa sezione.</div>`;
+        return;
+      }
+
+      container.innerHTML = filtered.map(mat => {
+        const sortedSizes = [...(mat.sizes || [])].sort(compareSizesAsc);
+        const img = mat.image || `https://placehold.co/600x450/18181b/fbbf24?text=${encodeURIComponent(mat.name)}`;
+        const sizesHtml = sortedSizes.map(renderSizeWithUnitMm).join(', ');
+
+        return `
+          <div class="p-3 rounded-xl bg-zinc-900 border border-zinc-800 space-y-2.5">
+            <div class="w-full max-w-sm rounded-xl overflow-hidden bg-zinc-950 border border-zinc-700">
+              <img src="${esc(img)}" alt="${esc(mat.name)}" onerror="this.src='https://placehold.co/600x450/18181b/ffffff?text=RYUMA'" class="photo-natural">
+            </div>
+
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+              <div class="min-w-0 flex-1 space-y-1">
+                <p class="text-sm sm:text-base font-bold text-white leading-snug break-words">${esc(mat.name)}</p>
+                ${sortedSizes.length ? `<p class="text-xs text-amber-400 font-semibold break-words">${sizesHtml}</p>` : ''}
+              </div>
+              <button type="button" onclick="openEditMaterialModal('${esc(mat.id)}')" class="px-4 py-2 rounded-xl bg-amber-400 text-zinc-950 text-xs font-bold hover:bg-amber-300 transition shrink-0 self-start sm:self-center">
+                Modifica
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function selectTab(tab) {
+      currentTab = tab;
+      document.querySelectorAll('.nav-tab').forEach(btn => {
+        const active = btn.dataset.tab === tab;
+        if (active) {
+          btn.className = 'nav-tab py-2 px-1 rounded-lg text-[10px] sm:text-xs font-semibold text-center truncate transition bg-amber-400 text-zinc-950';
+        } else {
+          btn.className = 'nav-tab py-2 px-1 rounded-lg text-[10px] sm:text-xs font-semibold text-center truncate transition bg-zinc-900 text-slate-300 hover:text-white border border-zinc-800';
+        }
+      });
+
+      const secCatalog = document.getElementById('section-catalog');
+      const secMaterials = document.getElementById('section-materials');
+      const secCustom = document.getElementById('section-custom');
+
+      secCatalog.classList.add('hidden');
+      secMaterials.classList.add('hidden');
+      secCustom.classList.add('hidden');
+
+      if (tab === 'personalizzati') {
+        secCustom.classList.remove('hidden');
+        const notesEl = document.getElementById('custom-notes');
+        if (notesEl && !clientDraftSession.customNotesTouched) {
+          const tpl = normalizeCopyTemplate(appState.copyTemplate);
+          notesEl.value = tpl.defaultCustomNotes || '';
+          clientDraftSession.customNotes = notesEl.value;
+        }
+        renderCustomMeasureFields();
+        renderCustomSelectedMaterials();
+      } else if (tab === 'materiali') {
+        secMaterials.classList.remove('hidden');
+        selectClientMaterialCategory(clientMaterialCategory);
+      } else {
+        secCatalog.classList.remove('hidden');
+        renderCatalog();
+      }
+    }
+
+    function selectClientMaterialCategory(cat) {
+      clientMaterialCategory = normalizeMaterialType(cat);
+      MATERIAL_CATEGORIES.forEach(c => {
+        const btn = document.getElementById(`client-mat-${c}`);
+        if (!btn) return;
+        if (c === clientMaterialCategory) {
+          btn.className = 'py-2 px-2 rounded-lg text-[11px] font-bold transition bg-amber-400 text-zinc-950';
+        } else {
+          btn.className = 'py-2 px-2 rounded-lg text-[11px] font-bold transition bg-zinc-950 text-slate-300 border border-zinc-800 hover:text-white';
+        }
+      });
+      renderMaterials();
+    }
+
+    function renderMaterials() {
+      const grid = document.getElementById('materials-grid');
+      const empty = document.getElementById('empty-materials');
+      const filtered = getSortedMaterials(clientMaterialCategory);
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        empty.classList.remove('hidden');
+        return;
+      }
+
+      empty.classList.add('hidden');
+      grid.innerHTML = filtered.map(mat => {
+        const sortedSizes = [...(mat.sizes || [])].sort(compareSizesAsc);
+        const img = mat.image || `https://placehold.co/600x450/18181b/fbbf24?text=${encodeURIComponent(mat.name)}`;
+        const sizesHtml = sortedSizes.map(renderSizeWithUnitMm).join(' · ');
+
+        return `
+          <article onclick="openMaterialDetailModal('${esc(mat.id)}')" class="cursor-pointer bg-zinc-900 border border-zinc-800 hover:border-amber-400/70 rounded-2xl overflow-hidden transition flex flex-col">
+            <div class="bg-zinc-950 flex items-center justify-center border-b border-zinc-800">
+              <img src="${esc(img)}" alt="${esc(mat.name)}" onerror="this.src='https://placehold.co/600x450/18181b/ffffff?text=RYUMA'" class="photo-natural">
+            </div>
+            <div class="p-3 space-y-1">
+              <h3 class="text-xs sm:text-sm font-bold text-white leading-snug break-words">${esc(mat.name)}</h3>
+              ${sizesHtml ? `<p class="text-[11px] font-semibold text-amber-400 break-words">${sizesHtml}</p>` : ''}
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function openMaterialDetailModal(matId) {
+      const mat = getMaterialById(matId);
+      if (!mat) return;
+
+      const img = mat.image || `https://placehold.co/600x450/18181b/fbbf24?text=${encodeURIComponent(mat.name)}`;
+      document.getElementById('mat-detail-img').src = img;
+      document.getElementById('mat-detail-img').alt = mat.name || '';
+      document.getElementById('mat-detail-name').textContent = mat.name || '';
+
+      const sizesWrap = document.getElementById('mat-detail-sizes-wrap');
+      const sizesBox = document.getElementById('mat-detail-sizes');
+      const sortedSizes = [...(mat.sizes || [])].sort(compareSizesAsc);
+
+      if (sortedSizes.length) {
+        sizesWrap.classList.remove('hidden');
+        sizesBox.innerHTML = sortedSizes.map(sz => `
+          <span class="px-2.5 py-1 rounded-lg bg-zinc-950 border border-zinc-700 text-xs font-bold text-amber-400">
+            ${renderSizeWithUnitMm(sz)}
+          </span>
+        `).join('');
+      } else {
+        sizesWrap.classList.add('hidden');
+        sizesBox.innerHTML = '';
+      }
+
+      const modal = document.getElementById('material-detail-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeMaterialDetailModal() {
+      const modal = document.getElementById('material-detail-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function stepCardPhoto(itemId, totalPhotos, delta, event) {
+      if (event) event.stopPropagation();
+      if (!totalPhotos || totalPhotos <= 1) return;
+      const current = clientDraftSession.cardSlideIndices[itemId] || 0;
+      const next = (current + delta + totalPhotos) % totalPhotos;
+      clientDraftSession.cardSlideIndices[itemId] = next;
+      renderCatalog();
+    }
+
+    function stepSetHalfPhoto(setId, part, totalPhotos, delta, event) {
+      if (event) event.stopPropagation();
+      if (!totalPhotos || totalPhotos <= 1) return;
+      const map = part === 'bracelet'
+        ? clientDraftSession.setBraceletSlideIndices
+        : clientDraftSession.setNecklaceSlideIndices;
+      const current = map[setId] || 0;
+      map[setId] = (current + delta + totalPhotos) % totalPhotos;
+      renderCatalog();
+    }
+
+    function renderCatalog() {
+      const grid = document.getElementById('catalog-grid');
+      const empty = document.getElementById('empty-catalog');
+      const list = getDisplayCatalogItems(currentTab);
+
+      if (list.length === 0) {
+        grid.innerHTML = '';
+        empty.classList.remove('hidden');
+        return;
+      }
+
+      empty.classList.add('hidden');
+      const compLabel = (appState.config.compositionBtnLabel && appState.config.compositionBtnLabel.trim()) || 'Composizione';
+
+      grid.innerHTML = list.map(item => {
+        const priceLabel = formatEuroPrice(item.price);
+
+        let mediaHtml = '';
+        if (item.category === 'set') {
+          const bList = item.braceletImages || [];
+          const nList = item.necklaceImages || [];
+          const bIdx = (clientDraftSession.setBraceletSlideIndices[item.id] || 0) % Math.max(1, bList.length);
+          const nIdx = (clientDraftSession.setNecklaceSlideIndices[item.id] || 0) % Math.max(1, nList.length);
+          const bSrc = bList[bIdx] || '';
+          const nSrc = nList[nIdx] || '';
+
+          const bArrows = bList.length > 1 ? `
+            <button type="button" onclick="stepSetHalfPhoto('${esc(item.id)}', 'bracelet', ${bList.length}, -1, event)" aria-label="Foto bracciale precedente" class="w-7 h-7 rounded-full bg-zinc-950/90 border border-zinc-700 text-amber-400 hover:border-amber-400 flex items-center justify-center text-xs font-bold z-10">‹</button>
+            <span class="px-2 py-0.5 rounded-full bg-zinc-950/90 border border-zinc-700 text-[10px] font-bold text-white">${bIdx + 1}/${bList.length}</span>
+            <button type="button" onclick="stepSetHalfPhoto('${esc(item.id)}', 'bracelet', ${bList.length}, 1, event)" aria-label="Foto bracciale successiva" class="w-7 h-7 rounded-full bg-zinc-950/90 border border-zinc-700 text-amber-400 hover:border-amber-400 flex items-center justify-center text-xs font-bold z-10">›</button>
+          ` : '';
+
+          const nArrows = nList.length > 1 ? `
+            <button type="button" onclick="stepSetHalfPhoto('${esc(item.id)}', 'necklace', ${nList.length}, -1, event)" aria-label="Foto collana precedente" class="w-7 h-7 rounded-full bg-zinc-950/90 border border-zinc-700 text-amber-400 hover:border-amber-400 flex items-center justify-center text-xs font-bold z-10">‹</button>
+            <span class="px-2 py-0.5 rounded-full bg-zinc-950/90 border border-zinc-700 text-[10px] font-bold text-white">${nIdx + 1}/${nList.length}</span>
+            <button type="button" onclick="stepSetHalfPhoto('${esc(item.id)}', 'necklace', ${nList.length}, 1, event)" aria-label="Foto collana successiva" class="w-7 h-7 rounded-full bg-zinc-950/90 border border-zinc-700 text-amber-400 hover:border-amber-400 flex items-center justify-center text-xs font-bold z-10">›</button>
+          ` : '';
+
+          mediaHtml = `
+            <div onclick="openDetailModal('${esc(item.id)}', 0)" class="cursor-pointer divide-y divide-zinc-800 border-b border-zinc-800 bg-zinc-950">
+              <div class="p-2 space-y-1.5">
+                <div class="flex items-center justify-between gap-2">
+                  <span class="text-[10px] font-bold text-amber-400 truncate">Bracciale · ${esc(item.braceletTitle)}</span>
+                  ${bList.length > 1 ? `<div class="flex items-center gap-1 shrink-0">${bArrows}</div>` : ''}
+                </div>
+                <div class="bg-zinc-950 rounded-xl overflow-hidden flex items-center justify-center">
+                  <img src="${esc(bSrc)}" alt="${esc(item.braceletTitle)}" onerror="this.src='https://placehold.co/800x600/18181b/ffffff?text=RYUMA'" class="set-half-photo">
+                </div>
+              </div>
+
+              <div class="p-2 space-y-1.5">
+                <div class="flex items-center justify-between gap-2">
+                  <span class="text-[10px] font-bold text-amber-400 truncate">Collana · ${esc(item.necklaceTitle)}</span>
+                  ${nList.length > 1 ? `<div class="flex items-center gap-1 shrink-0">${nArrows}</div>` : ''}
+                </div>
+                <div class="bg-zinc-950 rounded-xl overflow-hidden flex items-center justify-center">
+                  <img src="${esc(nSrc)}" alt="${esc(item.necklaceTitle)}" onerror="this.src='https://placehold.co/800x600/18181b/ffffff?text=RYUMA'" class="set-half-photo">
+                </div>
+              </div>
+            </div>
+          `;
+        } else {
+          const photos = getItemPhotosList(item);
+          const activeIdx = (clientDraftSession.cardSlideIndices[item.id] || 0) % photos.length;
+          const activeSrc = photos[activeIdx];
+          const multiControls = photos.length > 1 ? `
+            <button type="button" onclick="stepCardPhoto('${esc(item.id)}', ${photos.length}, -1, event)" aria-label="Foto precedente" class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-zinc-950/90 border border-zinc-700 text-amber-400 hover:border-amber-400 flex items-center justify-center text-sm font-bold z-10 transition">
+              ‹
+            </button>
+            <button type="button" onclick="stepCardPhoto('${esc(item.id)}', ${photos.length}, 1, event)" aria-label="Foto successiva" class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-zinc-950/90 border border-zinc-700 text-amber-400 hover:border-amber-400 flex items-center justify-center text-sm font-bold z-10 transition">
+              ›
+            </button>
+            <span class="absolute bottom-2 right-2 px-2 py-0.5 rounded-full bg-zinc-950/90 border border-zinc-700 text-[10px] font-bold text-white z-10">
+              ${activeIdx + 1}/${photos.length}
+            </span>
+          ` : '';
+
+          mediaHtml = `
+            <div class="relative bg-zinc-950 border-b border-zinc-800">
+              <div onclick="openDetailModal('${esc(item.id)}', ${activeIdx})" class="cursor-pointer flex items-center justify-center">
+                <img src="${esc(activeSrc)}" alt="${esc(item.title)}" onerror="this.src='https://placehold.co/800x600/18181b/ffffff?text=RYUMA'" class="photo-natural">
+              </div>
+              ${multiControls}
+            </div>
+          `;
+        }
+
+        return `
+          <article class="bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden flex flex-col">
+            ${mediaHtml}
+
+            <div class="p-3.5 sm:p-4 flex flex-col gap-3">
+              <div onclick="openDetailModal('${esc(item.id)}', 0)" class="cursor-pointer flex items-start justify-between gap-2">
+                <h3 class="text-sm sm:text-base font-bold text-white leading-snug break-words flex-1 min-w-0">${esc(item.title)}</h3>
+                ${priceLabel ? `<span class="text-xs font-bold text-amber-400 shrink-0">${esc(priceLabel)}</span>` : ''}
+              </div>
+
+              <button type="button" onclick="openCompositionModal('${esc(item.id)}')" class="w-full py-2 px-3 rounded-xl bg-zinc-950 border border-zinc-700 hover:border-amber-400 text-white text-xs font-semibold transition flex items-center justify-between">
+                <span>${esc(compLabel)}</span>
+                <span class="text-xs text-amber-400">Vedi ↗</span>
+              </button>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function getItemByIdResolved(itemId) {
+      const raw = appState.items.find(i => i.id === itemId);
+      if (!raw) return null;
+      return raw.category === 'set' ? resolveSetItem(raw) : raw;
+    }
+
+    function openCompositionModal(itemId) {
+      const item = getItemByIdResolved(itemId);
+      if (!item) return;
+
+      const label = (appState.config.compositionBtnLabel && appState.config.compositionBtnLabel.trim()) || 'Composizione';
+      document.getElementById('comp-modal-label').textContent = label;
+      document.getElementById('comp-modal-title').textContent = item.title;
+
+      const listEl = document.getElementById('comp-modal-list');
+      const entries = Array.isArray(item.composition) ? item.composition : [];
+
+      if (entries.length === 0) {
+        listEl.innerHTML = `<p class="text-xs text-slate-300">Composizione non specificata.</p>`;
+      } else {
+        const grouped = groupCompositionByCategory(entries);
+        const sectionsHtml = MATERIAL_CATEGORIES
+          .filter(cat => grouped[cat].length > 0)
+          .map(cat => {
+            const rowsHtml = grouped[cat].map(({ entry }, idxInCat) => {
+              if (entry.kind === 'cord') {
+                const cordMat = getSortedMaterials('cord').find(m => m.name === entry.cordName);
+                const img = (cordMat && cordMat.image)
+                  ? cordMat.image
+                  : `https://placehold.co/160x160/18181b/fbbf24?text=${encodeURIComponent(entry.cordName || 'Cavetto')}`;
+                return `
+                  <div class="flex items-center gap-3 p-2.5 rounded-xl bg-zinc-950 border border-zinc-800">
+                    <span class="text-xs font-bold text-slate-300 w-4 shrink-0">${idxInCat + 1}.</span>
+                    <img src="${esc(img)}" alt="${esc(entry.cordName || 'Cavetto base')}" onerror="this.src='https://placehold.co/160x160/18181b/ffffff?text=RYUMA'" class="w-12 h-12 rounded-lg object-contain bg-zinc-900 border border-zinc-700 shrink-0">
+                    <div class="min-w-0 flex-1">
+                      <p class="text-xs font-bold text-white leading-snug break-words">${esc(entry.cordName || 'Cavetto base')}</p>
+                      <p class="text-[11px] font-semibold text-amber-400">${esc(MATERIAL_CATEGORY_LABELS[cat])}</p>
+                    </div>
+                  </div>
+                `;
+              }
+
+              const mat = getMaterialById(entry.materialId);
+              const name = mat ? mat.name : 'Componente';
+              const img = (mat && mat.image)
+                ? mat.image
+                : `https://placehold.co/160x160/18181b/fbbf24?text=${encodeURIComponent(name)}`;
+              const sz = (entry.size || '').trim();
+
+              return `
+                <div class="flex items-center gap-3 p-2.5 rounded-xl bg-zinc-950 border border-zinc-800">
+                  <span class="text-xs font-bold text-slate-300 w-4 shrink-0">${idxInCat + 1}.</span>
+                  <img src="${esc(img)}" alt="${esc(name)}" onerror="this.src='https://placehold.co/160x160/18181b/ffffff?text=RYUMA'" class="w-12 h-12 rounded-lg object-contain bg-zinc-900 border border-zinc-700 shrink-0">
+                  <div class="min-w-0 flex-1">
+                    <p class="text-xs font-bold text-white leading-snug break-words">${esc(name)}</p>
+                    ${sz ? `<p class="text-[11px] font-semibold text-amber-400">Misura: ${renderSizeWithUnitMm(sz)}</p>` : ''}
+                  </div>
+                </div>
+              `;
+            }).join('');
+
+            return `
+              <div class="space-y-1.5">
+                <div class="text-[10px] font-bold text-amber-400 px-1">${esc(MATERIAL_CATEGORY_LABELS[cat])}</div>
+                <div class="space-y-2">${rowsHtml}</div>
+              </div>
+            `;
+          }).join('');
+
+        listEl.innerHTML = sectionsHtml;
+      }
+
+      const modal = document.getElementById('composition-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeCompositionModal() {
+      const modal = document.getElementById('composition-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function openCompositionFromDetail() {
+      if (!activeDetailItem) return;
+      openCompositionModal(activeDetailItem.id);
+    }
+
+    function renderSetDetailPhotos(item) {
+      const bList = item.braceletImages || [];
+      const nList = item.necklaceImages || [];
+      const bIdx = (clientDraftSession.setBraceletSlideIndices[item.id] || 0) % Math.max(1, bList.length);
+      const nIdx = (clientDraftSession.setNecklaceSlideIndices[item.id] || 0) % Math.max(1, nList.length);
+
+      document.getElementById('detail-set-bracelet-name').textContent = item.braceletTitle || 'Bracciale';
+      document.getElementById('detail-set-necklace-name').textContent = item.necklaceTitle || 'Collana';
+
+      const bImg = document.getElementById('detail-set-bracelet-img');
+      bImg.src = bList[bIdx] || '';
+      bImg.alt = item.braceletTitle || 'Bracciale';
+      bImg.onerror = () => { bImg.src = 'https://placehold.co/800x600/18181b/ffffff?text=RYUMA'; };
+
+      const nImg = document.getElementById('detail-set-necklace-img');
+      nImg.src = nList[nIdx] || '';
+      nImg.alt = item.necklaceTitle || 'Collana';
+      nImg.onerror = () => { nImg.src = 'https://placehold.co/800x600/18181b/ffffff?text=RYUMA'; };
+
+      const bThumbs = document.getElementById('detail-set-bracelet-thumbs');
+      bThumbs.innerHTML = bList.length > 1 ? bList.map((src, i) => `
+        <button type="button" onclick="selectDetailSetPhoto('${esc(item.id)}', 'bracelet', ${i})" class="rounded-lg overflow-hidden border ${i === bIdx ? 'border-amber-400' : 'border-zinc-700 opacity-65 hover:opacity-100'} shrink-0">
+          <img src="${esc(src)}" alt="" class="h-10 w-auto object-contain bg-zinc-900">
+        </button>
+      `).join('') : '';
+
+      const nThumbs = document.getElementById('detail-set-necklace-thumbs');
+      nThumbs.innerHTML = nList.length > 1 ? nList.map((src, i) => `
+        <button type="button" onclick="selectDetailSetPhoto('${esc(item.id)}', 'necklace', ${i})" class="rounded-lg overflow-hidden border ${i === nIdx ? 'border-amber-400' : 'border-zinc-700 opacity-65 hover:opacity-100'} shrink-0">
+          <img src="${esc(src)}" alt="" class="h-10 w-auto object-contain bg-zinc-900">
+        </button>
+      `).join('') : '';
+    }
+
+    function selectDetailSetPhoto(setId, part, idx) {
+      if (part === 'bracelet') {
+        clientDraftSession.setBraceletSlideIndices[setId] = idx;
+      } else {
+        clientDraftSession.setNecklaceSlideIndices[setId] = idx;
+      }
+      if (activeDetailItem && activeDetailItem.id === setId) {
+        renderSetDetailPhotos(activeDetailItem);
+      }
+      renderCatalog();
+    }
+
+    function openDetailModal(itemId, startPhotoIdx = 0) {
+      const item = getItemByIdResolved(itemId);
+      if (!item) return;
+      activeDetailItem = item;
+
+      const catNames = { bracciali: 'Bracciali', collane: 'Collane', set: 'Set' };
+      document.getElementById('detail-cat').textContent = catNames[item.category] || item.category;
+      document.getElementById('detail-title').textContent = item.title;
+
+      const priceEl = document.getElementById('detail-price');
+      const priceLabel = formatEuroPrice(item.price);
+      if (priceLabel) {
+        priceEl.textContent = priceLabel;
+        priceEl.classList.remove('hidden');
+      } else {
+        priceEl.textContent = '';
+        priceEl.classList.add('hidden');
+      }
+
+      const singleWrap = document.getElementById('detail-single-photo-wrap');
+      const setPhotosWrap = document.getElementById('detail-set-photos-wrap');
+
+      if (item.category === 'set') {
+        singleWrap.classList.add('hidden');
+        setPhotosWrap.classList.remove('hidden');
+        renderSetDetailPhotos(item);
+      } else {
+        singleWrap.classList.remove('hidden');
+        setPhotosWrap.classList.add('hidden');
+
+        const photos = getItemPhotosList(item);
+        const initialIdx = Math.max(0, Math.min(startPhotoIdx, photos.length - 1));
+        clientDraftSession.cardSlideIndices[item.id] = initialIdx;
+
+        const mainImg = document.getElementById('detail-main-img');
+        mainImg.src = photos[initialIdx];
+        mainImg.alt = item.title;
+        mainImg.onerror = () => { mainImg.src = 'https://placehold.co/800x600/18181b/ffffff?text=RYUMA'; };
+
+        const thumbs = document.getElementById('detail-thumbs');
+        if (photos.length > 1) {
+          thumbs.classList.remove('hidden');
+          thumbs.innerHTML = photos.map((src, i) => `
+            <button type="button" onclick="selectDetailPhoto('${esc(item.id)}', ${i})" class="rounded-lg overflow-hidden border ${i === initialIdx ? 'border-amber-400' : 'border-zinc-700 opacity-65 hover:opacity-100'} shrink-0">
+              <img src="${esc(src)}" alt="" class="h-11 w-auto object-contain bg-zinc-900">
+            </button>
+          `).join('');
+        } else {
+          thumbs.classList.add('hidden');
+          thumbs.innerHTML = '';
+        }
+      }
+
+      const compBtnText = (appState.config.compositionBtnLabel && appState.config.compositionBtnLabel.trim()) || 'Composizione';
+      document.getElementById('detail-comp-btn-text').textContent = compBtnText;
+
+      const isSetItem = item.category === 'set';
+      const singleSizeWrap = document.getElementById('detail-single-size-wrap');
+      const setSizesWrap = document.getElementById('detail-set-sizes-wrap');
+      singleSizeWrap.classList.toggle('hidden', isSetItem);
+      setSizesWrap.classList.toggle('hidden', !isSetItem);
+
+      const detailNoteEl = document.getElementById('detail-bracelet-note');
+      const detailSetNoteEl = document.getElementById('detail-set-bracelet-note');
+      if (item.category === 'bracciali') {
+        renderBraceletNoteElement(detailNoteEl, appState.config.braceletSizeNote);
+        if (detailSetNoteEl) {
+          detailSetNoteEl.textContent = '';
+          detailSetNoteEl.classList.add('hidden');
+        }
+      } else if (isSetItem) {
+        renderBraceletNoteElement(detailSetNoteEl, appState.config.braceletSizeNote);
+        if (detailNoteEl) {
+          detailNoteEl.textContent = '';
+          detailNoteEl.classList.add('hidden');
+        }
+      } else {
+        if (detailNoteEl) {
+          detailNoteEl.textContent = '';
+          detailNoteEl.classList.add('hidden');
+        }
+        if (detailSetNoteEl) {
+          detailSetNoteEl.textContent = '';
+          detailSetNoteEl.classList.add('hidden');
+        }
+      }
+
+      const sizeInput = document.getElementById('detail-size-input');
+      const braceletSizeInput = document.getElementById('detail-bracelet-size-input');
+      const necklaceSizeInput = document.getElementById('detail-necklace-size-input');
+
+      sizeInput.value = '';
+      braceletSizeInput.value = '';
+      necklaceSizeInput.value = '';
+      clientDraftSession.detailSizeInput = '';
+      clientDraftSession.detailBraceletSizeInput = '';
+      clientDraftSession.detailNecklaceSizeInput = '';
+
+      sizeInput.oninput = () => {
+        clientDraftSession.detailSizeInput = sizeInput.value;
+      };
+      braceletSizeInput.oninput = () => {
+        clientDraftSession.detailBraceletSizeInput = braceletSizeInput.value;
+      };
+      necklaceSizeInput.oninput = () => {
+        clientDraftSession.detailNecklaceSizeInput = necklaceSizeInput.value;
+      };
+
+      const modal = document.getElementById('detail-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function selectDetailPhoto(itemId, idx) {
+      const item = getItemByIdResolved(itemId);
+      if (!item || item.category === 'set') return;
+      const photos = getItemPhotosList(item);
+      if (!photos[idx]) return;
+      clientDraftSession.cardSlideIndices[itemId] = idx;
+      document.getElementById('detail-main-img').src = photos[idx];
+      renderCatalog();
+      openDetailModal(itemId, idx);
+    }
+
+    function buildDetailArticleSummaryText() {
+      if (!activeDetailItem) return '';
+      const tpl = normalizeCopyTemplate(appState.copyTemplate);
+      const priceLabel = formatEuroPrice(activeDetailItem.price);
+      const catNames = { bracciali: 'Bracciale', collane: 'Collana', set: 'Set' };
+      const catLabel = catNames[activeDetailItem.category] || 'Articolo';
+
+      const lines = [];
+      const intro = applyCopyPlaceholderVars(tpl.articleIntro).trim();
+      if (intro) {
+        lines.push(intro);
+      }
+
+      if (tpl.includeCategory) {
+        lines.push(`- ${catLabel}: ${activeDetailItem.title}`);
+      } else {
+        lines.push(`- ${activeDetailItem.title}`);
+      }
+
+      if (tpl.includePrice && priceLabel) {
+        lines.push(`- Prezzo indicativo: ${priceLabel}`);
+      }
+
+      if (tpl.includeMeasure) {
+        if (activeDetailItem.category === 'set') {
+          const bSize = formatCmMeasure(document.getElementById('detail-bracelet-size-input').value);
+          const nSize = formatCmMeasure(document.getElementById('detail-necklace-size-input').value);
+          if (bSize) lines.push(`- Misura bracciale: ${bSize}`);
+          if (nSize) lines.push(`- Misura collana: ${nSize}`);
+        } else {
+          const formattedMeasure = formatCmMeasure(document.getElementById('detail-size-input').value);
+          if (formattedMeasure) {
+            lines.push(`- Misura desiderata: ${formattedMeasure}`);
+          }
+        }
+      }
+
+      if (tpl.includeComponents) {
+        const compLines = formatGroupedCompositionForMessage(activeDetailItem.composition);
+        if (compLines.length > 0) {
+          lines.push(`- Componenti:\n${compLines.join('\n')}`);
+        }
+      }
+
+      const closing = applyCopyPlaceholderVars(tpl.closingText).trim();
+      if (closing) {
+        lines.push(closing);
+      }
+
+      return lines.join('\n');
+    }
+
+    function sendDetailArticleTelegram() {
+      const text = buildDetailArticleSummaryText();
+      if (!text) return;
+      forwardMessageToTelegram(text);
+    }
+
+    function closeDetailModal() {
+      const modal = document.getElementById('detail-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      activeDetailItem = null;
+      clientDraftSession.detailSizeInput = '';
+      clientDraftSession.detailBraceletSizeInput = '';
+      clientDraftSession.detailNecklaceSizeInput = '';
+    }
+
+    function sendCustomOrderTelegram(e) {
+      e.preventDefault();
+      const tpl = normalizeCopyTemplate(appState.copyTemplate);
+      const type = document.getElementById('custom-type').value;
+      const notes = document.getElementById('custom-notes').value.trim();
+
+      const validEntries = clientDraftSession.customComposition.filter(
+        c => c.kind === 'cord' || c.cordName || getMaterialById(c.materialId)
+      );
+      const compLines = formatGroupedCompositionForMessage(validEntries);
+
+      const lines = [];
+      const intro = applyCopyPlaceholderVars(tpl.customIntro).trim();
+      if (intro) {
+        lines.push(intro);
+      }
+
+      if (tpl.includeCategory) {
+        lines.push(`- Tipologia: ${type}`);
+      }
+
+      if (tpl.includeMeasure) {
+        if (type === 'Set coordinato') {
+          const bSize = formatCmMeasure(document.getElementById('custom-bracelet-size').value);
+          const nSize = formatCmMeasure(document.getElementById('custom-necklace-size').value);
+          if (bSize) lines.push(`- Misura bracciale: ${bSize}`);
+          if (nSize) lines.push(`- Misura collana: ${nSize}`);
+        } else {
+          const size = formatCmMeasure(document.getElementById('custom-size').value);
+          if (size) lines.push(`- Misura: ${size}`);
+        }
+      }
+
+      if (tpl.includeComponents && compLines.length) {
+        lines.push(`- Componenti:\n${compLines.join('\n')}`);
+      }
+      if (tpl.includeNotes && notes) {
+        lines.push(`- Note: ${notes}`);
+      }
+
+      const closing = applyCopyPlaceholderVars(tpl.closingText).trim();
+      if (closing) {
+        lines.push(closing);
+      }
+
+      forwardMessageToTelegram(lines.join('\n'));
+    }
+
+    function getActiveCompositionArray() {
+      return pickerTargetContext === 'custom' ? clientDraftSession.customComposition : modalComposition;
+    }
+
+    function setActiveCompositionArray(nextArr) {
+      if (pickerTargetContext === 'custom') {
+        clientDraftSession.customComposition = nextArr;
+      } else {
+        modalComposition = nextArr;
+      }
+    }
+
+    function moveCompositionEntryInCategory(origIdx, delta) {
+      const entry = modalComposition[origIdx];
+      if (!entry) return;
+      const cat = getEntryCategory(entry);
+
+      const catIndices = [];
+      modalComposition.forEach((item, idx) => {
+        if (getEntryCategory(item) === cat) catIndices.push(idx);
+      });
+
+      const posInCat = catIndices.indexOf(origIdx);
+      const targetPosInCat = posInCat + delta;
+      if (posInCat === -1 || targetPosInCat < 0 || targetPosInCat >= catIndices.length) return;
+
+      const swapWithOrigIdx = catIndices[targetPosInCat];
+      const temp = modalComposition[origIdx];
+      modalComposition[origIdx] = modalComposition[swapWithOrigIdx];
+      modalComposition[swapWithOrigIdx] = temp;
+
+      renderFormSelectedMaterials();
+    }
+
+    function renderCompositionListInto(containerId, list, context) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+
+      if (!Array.isArray(list) || list.length === 0) {
+        container.innerHTML = `<span class="text-xs text-slate-300">Nessun elemento selezionato.</span>`;
+        return;
+      }
+
+      const allowReorder = context === 'item';
+      const grouped = groupCompositionByCategory(list);
+
+      const sectionsHtml = MATERIAL_CATEGORIES
+        .filter(cat => grouped[cat].length > 0)
+        .map(cat => {
+          const itemsInCat = grouped[cat];
+          const rowsHtml = itemsInCat.map(({ entry, origIdx }, posInCat) => {
+            const labelHtml = renderCompLabelHtml(entry);
+            const isFirst = posInCat === 0;
+            const isLast = posInCat === itemsInCat.length - 1;
+
+            const arrowControls = allowReorder ? `
+              <div class="flex items-center gap-1 shrink-0">
+                <button type="button" onclick="moveCompositionEntryInCategory(${origIdx}, -1)" ${isFirst ? 'disabled' : ''} aria-label="Sposta su" class="w-6 h-6 rounded-lg bg-zinc-950 border border-zinc-700 text-amber-400 hover:border-amber-400 disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center text-xs font-bold transition">
+                  ↑
+                </button>
+                <button type="button" onclick="moveCompositionEntryInCategory(${origIdx}, 1)" ${isLast ? 'disabled' : ''} aria-label="Sposta giù" class="w-6 h-6 rounded-lg bg-zinc-950 border border-zinc-700 text-amber-400 hover:border-amber-400 disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center text-xs font-bold transition">
+                  ↓
+                </button>
+              </div>
+            ` : '';
+
+            return `
+              <div class="flex items-center justify-between gap-2 px-3 py-2 rounded-xl bg-zinc-900 border border-zinc-700 text-xs text-white">
+                <div class="flex items-center gap-2 min-w-0 flex-1">
+                  <span class="text-xs font-bold text-slate-300 shrink-0">${posInCat + 1}.</span>
+                  <span class="break-words text-white font-semibold">${labelHtml}</span>
+                </div>
+                <div class="flex items-center gap-1.5 shrink-0">
+                  ${arrowControls}
+                  <button type="button" onclick="removeSelectedMaterialAt(${origIdx}, '${context}')" class="w-6 h-6 rounded-lg bg-red-950/80 border border-red-500 text-red-300 hover:bg-red-900/80 flex items-center justify-center text-xs shrink-0" aria-label="Rimuovi">
+                    ✕
+                  </button>
+                </div>
+              </div>
+            `;
+          }).join('');
+
+          return `
+            <div class="space-y-1.5">
+              <div class="text-[10px] font-bold text-amber-400 px-0.5">${esc(MATERIAL_CATEGORY_LABELS[cat])}</div>
+              <div class="space-y-1.5">${rowsHtml}</div>
+            </div>
+          `;
+        }).join('');
+
+      container.innerHTML = sectionsHtml;
+    }
+
+    function renderFormSelectedMaterials() {
+      renderCompositionListInto('form-selected-materials', modalComposition, 'item');
+    }
+
+    function renderCustomSelectedMaterials() {
+      renderCompositionListInto('custom-selected-materials', clientDraftSession.customComposition, 'custom');
+    }
+
+    function removeSelectedMaterialAt(idx, context = 'item') {
+      if (context === 'custom') {
+        clientDraftSession.customComposition.splice(idx, 1);
+        renderCustomSelectedMaterials();
+      } else {
+        modalComposition.splice(idx, 1);
+        renderFormSelectedMaterials();
+      }
+    }
+
+    function openMaterialPickerModal(category = 'stones', context = 'item') {
+      if (context === 'item' && IS_CLIENT_LOCKED) return;
+      pickerTargetContext = context === 'custom' ? 'custom' : 'item';
+      activePickerCategory = normalizeMaterialType(category);
+
+      const labelEl = document.getElementById('picker-category-label');
+      const titleEl = document.getElementById('picker-modal-title');
+      const addNewBtn = document.getElementById('picker-add-new-btn');
+
+      if (activePickerCategory === 'stones') {
+        labelEl.textContent = 'Pietre per misura';
+        titleEl.textContent = 'Seleziona pietre';
+        if (addNewBtn) addNewBtn.classList.toggle('hidden', IS_CLIENT_LOCKED || pickerTargetContext === 'custom');
+      } else if (activePickerCategory === 'hematite') {
+        labelEl.textContent = 'Ematite per misura';
+        titleEl.textContent = 'Seleziona ematite';
+        if (addNewBtn) addNewBtn.classList.toggle('hidden', IS_CLIENT_LOCKED || pickerTargetContext === 'custom');
+      } else if (activePickerCategory === 'steel') {
+        labelEl.textContent = 'Acciaio per misura';
+        titleEl.textContent = 'Seleziona acciaio';
+        if (addNewBtn) addNewBtn.classList.toggle('hidden', IS_CLIENT_LOCKED || pickerTargetContext === 'custom');
+      } else {
+        labelEl.textContent = 'Cavetto base (esclusione reciproca)';
+        titleEl.textContent = 'Scegli cavetto base';
+        if (addNewBtn) addNewBtn.classList.add('hidden');
+      }
+
+      if (activePickerCategory !== 'cord') {
+        const sections = getSortedSizeSectionsForType(activePickerCategory);
+        if (!sections.some(s => s.key === activePickerSizeKey)) {
+          activePickerSizeKey = sections.length ? sections[0].key : '';
+        }
+      }
+
+      renderMaterialPickerUI();
+      const modal = document.getElementById('material-picker-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function selectPickerSizeTab(sizeKey) {
+      activePickerSizeKey = sizeKey;
+      renderMaterialPickerUI();
+    }
+
+    function closeMaterialPickerModal() {
+      const modal = document.getElementById('material-picker-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      if (pickerTargetContext === 'custom') {
+        renderCustomSelectedMaterials();
+      } else {
+        renderFormSelectedMaterials();
+      }
+    }
+
+    function isCompEntrySelected(entry) {
+      const key = getCompUniqueKey(entry);
+      return getActiveCompositionArray().some(c => getCompUniqueKey(c) === key);
+    }
+
+    function toggleComponentInPicker(materialId, size = '') {
+      const entry = { kind: 'component', materialId, size: size || '' };
+      const key = getCompUniqueKey(entry);
+      const list = [...getActiveCompositionArray()];
+      const idx = list.findIndex(c => getCompUniqueKey(c) === key);
+      if (idx === -1) {
+        list.push(entry);
+      } else {
+        list.splice(idx, 1);
+      }
+      setActiveCompositionArray(list);
+      renderMaterialPickerUI();
+      if (pickerTargetContext === 'custom') {
+        renderCustomSelectedMaterials();
+      } else {
+        renderFormSelectedMaterials();
+      }
+    }
+
+    function toggleCordInPicker(cordName) {
+      const cleanName = String(cordName || '').trim();
+      if (!cleanName) return;
+      const entry = { kind: 'cord', cordName: cleanName };
+      const key = getCompUniqueKey(entry);
+      const currentList = [...getActiveCompositionArray()];
+      const alreadySelected = currentList.some(c => getCompUniqueKey(c) === key);
+
+      // Rimuove sempre qualsiasi altro cavo base già presente (esclusione reciproca)
+      const withoutOtherCords = currentList.filter(c => c.kind !== 'cord');
+      const nextList = alreadySelected ? withoutOtherCords : [...withoutOtherCords, entry];
+
+      setActiveCompositionArray(nextList);
+      renderMaterialPickerUI();
+      if (pickerTargetContext === 'custom') {
+        renderCustomSelectedMaterials();
+      } else {
+        renderFormSelectedMaterials();
+      }
+    }
+
+    function renderMaterialPickerUI() {
+      const tabsEl = document.getElementById('material-picker-size-tabs');
+      const listEl = document.getElementById('material-picker-list');
+      const countEl = document.getElementById('picker-selected-count');
+      if (!tabsEl || !listEl) return;
+
+      const activeList = getActiveCompositionArray();
+      if (countEl) countEl.textContent = `${activeList.length} selezionati`;
+
+      if (activePickerCategory === 'cord') {
+        tabsEl.classList.add('hidden');
+        tabsEl.innerHTML = '';
+
+        const cords = getCordOptions();
+        listEl.innerHTML = cords.map((cordName, idx) => {
+          const checked = isCompEntrySelected({ kind: 'cord', cordName });
+          return `
+            <div data-cord-idx="${idx}" class="cord-picker-row cursor-pointer flex items-center justify-between gap-3 p-3 rounded-xl border transition ${checked ? 'bg-zinc-950 border-amber-400' : 'bg-zinc-950 border-zinc-800 hover:border-zinc-600'}">
+              <div class="min-w-0 flex-1">
+                <p class="text-xs font-bold text-white break-words">${esc(cordName)}</p>
+                <p class="text-[11px] font-semibold text-amber-400">Cavetto base · Scelta singola</p>
+              </div>
+              <span class="w-6 h-6 rounded-lg flex items-center justify-center text-xs font-bold shrink-0 ${checked ? 'bg-amber-400 text-zinc-950' : 'bg-zinc-900 border border-zinc-700 text-slate-300'}">
+                ${checked ? '✓' : ''}
+              </span>
+            </div>
+          `;
+        }).join('');
+
+        listEl.querySelectorAll('.cord-picker-row').forEach(row => {
+          const idx = Number(row.getAttribute('data-cord-idx'));
+          const targetName = cords[idx];
+          row.addEventListener('click', (ev) => {
+            ev.stopPropagation();
+            toggleCordInPicker(targetName);
+          });
+        });
+        return;
+      }
+
+      const sections = getSortedSizeSectionsForType(activePickerCategory);
+      if (sections.length === 0) {
+        tabsEl.classList.add('hidden');
+        tabsEl.innerHTML = '';
+        listEl.innerHTML = `<div class="text-center py-6 text-xs text-slate-300 border border-dashed border-zinc-800 rounded-xl">Nessun componente in questa categoria.</div>`;
+        return;
+      }
+
+      if (!sections.some(s => s.key === activePickerSizeKey)) {
+        activePickerSizeKey = sections[0].key;
+      }
+
+      tabsEl.classList.remove('hidden');
+      tabsEl.innerHTML = sections.map(sec => {
+        const isActive = sec.key === activePickerSizeKey;
+        return `
+          <button type="button" onclick="selectPickerSizeTab('${esc(sec.key)}')" class="px-3 py-1.5 rounded-lg text-xs font-bold whitespace-nowrap shrink-0 transition ${isActive ? 'bg-amber-400 text-zinc-950' : 'bg-zinc-950 text-slate-300 border border-zinc-800 hover:text-white'}">
+            ${renderSizeWithUnitMm(sec.label)}
+          </button>
+        `;
+      }).join('');
+
+      const currentSection = sections.find(s => s.key === activePickerSizeKey) || sections[0];
+      const sortedSectionMaterials = [...currentSection.materials].sort(compareByNameAsc);
+
+      listEl.innerHTML = sortedSectionMaterials.map(mat => {
+        const checked = isCompEntrySelected({ kind: 'component', materialId: mat.id, size: currentSection.label });
+        const img = mat.image || `https://placehold.co/160x160/18181b/fbbf24?text=${encodeURIComponent(mat.name)}`;
+
+        return `
+          <div onclick="toggleComponentInPicker('${esc(mat.id)}', '${esc(currentSection.label)}')" class="cursor-pointer flex items-center justify-between gap-3 p-2.5 rounded-xl border transition ${checked ? 'bg-zinc-950 border-amber-400' : 'bg-zinc-950 border-zinc-800 hover:border-zinc-600'}">
+            <div class="flex items-center gap-3 min-w-0 flex-1">
+              <img src="${esc(img)}" alt="${esc(mat.name)}" onerror="this.src='https://placehold.co/160x160/18181b/ffffff?text=RYUMA'" class="w-12 h-12 rounded-lg object-contain bg-zinc-900 border border-zinc-700 shrink-0">
+              <div class="min-w-0 flex-1">
+                <p class="text-xs font-bold text-white leading-snug break-words">${esc(mat.name)}</p>
+                <p class="text-[11px] font-semibold text-amber-400">Misura: ${renderSizeWithUnitMm(currentSection.label)}</p>
+              </div>
+            </div>
+            <span class="w-6 h-6 rounded-lg flex items-center justify-center text-xs font-bold shrink-0 ${checked ? 'bg-amber-400 text-zinc-950' : 'bg-zinc-900 border border-zinc-700 text-slate-300'}">
+              ${checked ? '✓' : ''}
+            </span>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function openAddItemModal(defaultCat = 'bracciali') {
+      if (IS_CLIENT_LOCKED) return;
+      if (defaultCat === 'set') {
+        openAddSetModal();
+        return;
+      }
+
+      document.getElementById('item-modal-heading').textContent = 'Nuovo articolo';
+      document.getElementById('form-item-id').value = '';
+      document.getElementById('form-title').value = '';
+      document.getElementById('form-category').value = defaultCat === 'collane' ? 'collane' : 'bracciali';
+      document.getElementById('form-price').value = '';
+      document.getElementById('btn-delete-item').classList.add('hidden');
+      modalPhotos = [];
+      modalComposition = [];
+      renderFormPhotos();
+      renderFormSelectedMaterials();
+
+      const modal = document.getElementById('item-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function openEditItemModal(id) {
+      if (IS_CLIENT_LOCKED) return;
+      const item = appState.items.find(i => i.id === id);
+      if (!item) return;
+
+      document.getElementById('item-modal-heading').textContent = 'Modifica articolo';
+      document.getElementById('form-item-id').value = item.id;
+      document.getElementById('form-title').value = item.title || '';
+      document.getElementById('form-category').value = item.category === 'collane' ? 'collane' : 'bracciali';
+      const rawPrice = String(item.price || '').replace(/^€\s*|\s*€$/g, '').trim();
+      document.getElementById('form-price').value = /^su richiesta$/i.test(rawPrice) ? '' : rawPrice;
+      document.getElementById('btn-delete-item').classList.remove('hidden');
+      modalPhotos = Array.isArray(item.images) ? [...item.images] : [];
+      modalComposition = Array.isArray(item.composition) ? [...item.composition] : [];
+      renderFormPhotos();
+      renderFormSelectedMaterials();
+
+      const modal = document.getElementById('item-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeItemModal() {
+      const modal = document.getElementById('item-modal');
+      if (!modal) return;
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function renderFormPhotos() {
+      const grid = document.getElementById('form-photos-grid');
+      if (!grid) return;
+
+      let html = modalPhotos.map((src, idx) => `
+        <div class="relative rounded-xl overflow-hidden border border-zinc-700 bg-zinc-950">
+          <img src="${esc(src)}" alt="Foto ${idx + 1}" class="photo-natural">
+          <button type="button" onclick="removeModalPhoto(${idx})" class="absolute top-1.5 right-1.5 w-6 h-6 rounded-full bg-red-950/90 border border-red-500 text-red-300 text-[10px] font-bold flex items-center justify-center">✕</button>
+        </div>
+      `).join('');
+
+      if (modalPhotos.length < 5) {
+        html += `
+          <div class="relative min-h-[100px] rounded-xl border border-dashed border-emerald-400/70 bg-zinc-950 hover:border-emerald-300 flex flex-col items-center justify-center text-emerald-300 transition p-3">
+            <span class="text-lg font-bold leading-none">+</span>
+            <span class="text-[10px] font-bold mt-1">Foto</span>
+            <input type="file" accept="image/*" multiple onchange="handlePhotoUpload(event)" class="file-overlay" aria-label="Carica foto">
+          </div>
+        `;
+      }
+
+      grid.innerHTML = html;
+    }
+
+    function removeModalPhoto(idx) {
+      modalPhotos.splice(idx, 1);
+      renderFormPhotos();
+    }
+
+    function compressImageFile(file) {
+      return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const dataUrl = e.target.result;
+          const img = new Image();
+          img.onload = () => {
+            try {
+              const maxDim = 900;
+              let w = img.width;
+              let h = img.height;
+              if (w > maxDim || h > maxDim) {
+                if (w > h) {
+                  h = Math.round((h * maxDim) / w);
+                  w = maxDim;
+                } else {
+                  w = Math.round((w * maxDim) / h);
+                  h = maxDim;
+                }
+              }
+              const canvas = document.createElement('canvas');
+              canvas.width = w;
+              canvas.height = h;
+              const ctx = canvas.getContext('2d');
+              ctx.drawImage(img, 0, 0, w, h);
+              resolve(canvas.toDataURL('image/jpeg', 0.82));
+            } catch (_) {
+              resolve(dataUrl);
+            }
+          };
+          img.onerror = () => resolve(dataUrl);
+          img.src = dataUrl;
+        };
+        reader.onerror = () => resolve('');
+        reader.readAsDataURL(file);
+      });
+    }
+
+    async function handlePhotoUpload(event) {
+      const files = Array.from(event.target.files || []);
+      if (!files.length) return;
+      const slots = 5 - modalPhotos.length;
+      for (const file of files.slice(0, slots)) {
+        const compressed = await compressImageFile(file);
+        if (compressed) modalPhotos.push(compressed);
+      }
+      renderFormPhotos();
+      event.target.value = '';
+    }
+
+    function saveItemForm(e) {
+      e.preventDefault();
+      if (IS_CLIENT_LOCKED) return;
+
+      const id = document.getElementById('form-item-id').value;
+      const title = document.getElementById('form-title').value.trim();
+      const category = document.getElementById('form-category').value;
+      const price = formatEuroPrice(document.getElementById('form-price').value);
+      const composition = [...modalComposition];
+
+      if (!title) return;
+
+      const images = modalPhotos.length
+        ? [...modalPhotos]
+        : [`https://placehold.co/800x600/18181b/fbbf24?text=${encodeURIComponent(title)}`];
+
+      if (id) {
+        const idx = appState.items.findIndex(i => i.id === id);
+        if (idx !== -1) {
+          appState.items[idx] = { ...appState.items[idx], title, category, price, composition, images };
+        }
+        delete clientDraftSession.cardSlideIndices[id];
+      } else {
+        appState.items.push({
+          id: 'ryuma-' + Date.now(),
+          title,
+          category,
+          price,
+          composition,
+          images
+        });
+      }
+
+      sortStateCollections();
+      closeItemModal();
+      commitAdminChange(false);
+      renderAdminItemsList();
+      if (currentTab === category || currentTab === 'set') {
+        renderCatalog();
+      }
+      showToast('Articolo salvato');
+    }
+
+    function deleteCurrentItem() {
+      if (IS_CLIENT_LOCKED) return;
+      const id = document.getElementById('form-item-id').value;
+      if (!id) return;
+      appState.items = appState.items.filter(i => i.id !== id);
+      delete clientDraftSession.cardSlideIndices[id];
+      sortStateCollections();
+      closeItemModal();
+      commitAdminChange(false);
+      renderAdminItemsList();
+      renderCatalog();
+      showToast('Articolo eliminato');
+    }
+
+    function populateSetSelects(selectedBraceletId = '', selectedNecklaceId = '') {
+      const bSelect = document.getElementById('form-set-bracelet');
+      const nSelect = document.getElementById('form-set-necklace');
+      const bracelets = getDisplayCatalogItems('bracciali');
+      const necklaces = getDisplayCatalogItems('collane');
+
+      bSelect.innerHTML = bracelets.length
+        ? bracelets.map(b => `<option value="${esc(b.id)}" ${b.id === selectedBraceletId ? 'selected' : ''}>${esc(b.title)}</option>`).join('')
+        : `<option value="">Nessun bracciale disponibile</option>`;
+
+      nSelect.innerHTML = necklaces.length
+        ? necklaces.map(n => `<option value="${esc(n.id)}" ${n.id === selectedNecklaceId ? 'selected' : ''}>${esc(n.title)}</option>`).join('')
+        : `<option value="">Nessuna collana disponibile</option>`;
+    }
+
+    function onSetTitleInput() {
+      setCustomTitleTouched = true;
+    }
+
+    function onSetPairChange() {
+      const titleInput = document.getElementById('form-set-title');
+      const braceletId = document.getElementById('form-set-bracelet').value;
+      const necklaceId = document.getElementById('form-set-necklace').value;
+      const bItem = appState.items.find(i => i.id === braceletId && i.category === 'bracciali');
+      const nItem = appState.items.find(i => i.id === necklaceId && i.category === 'collane');
+
+      if (!setCustomTitleTouched && titleInput) {
+        titleInput.value = `Set ${bItem ? bItem.title : 'Bracciale'} + ${nItem ? nItem.title : 'Collana'}`;
+      }
+      renderSetAutoPreview();
+    }
+
+    function renderSetAutoPreview() {
+      const previewEl = document.getElementById('set-auto-preview');
+      if (!previewEl) return;
+      const braceletId = document.getElementById('form-set-bracelet').value;
+      const necklaceId = document.getElementById('form-set-necklace').value;
+      const price = formatEuroPrice(document.getElementById('form-set-price').value);
+      const customTitle = document.getElementById('form-set-title').value.trim();
+
+      const resolved = resolveSetItem({
+        id: 'preview',
+        category: 'set',
+        title: customTitle,
+        braceletId,
+        necklaceId,
+        price
+      });
+
+      const grouped = groupCompositionByCategory(resolved.composition);
+      const groupedHtml = MATERIAL_CATEGORIES
+        .filter(cat => grouped[cat].length > 0)
+        .map(cat => {
+          const labels = grouped[cat].map(({ entry }) => renderCompLabelHtml(entry)).join(', ');
+          return `<div><span class="text-amber-400 font-bold">${esc(MATERIAL_CATEGORY_LABELS[cat])}:</span> <span class="text-white">${labels}</span></div>`;
+        }).join('');
+
+      previewEl.innerHTML = `
+        <div class="text-xs font-bold text-amber-400 break-words">${esc(resolved.title)}</div>
+
+        <div class="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-900 divide-y divide-zinc-800">
+          <div class="p-2 space-y-1">
+            <div class="flex items-center justify-between text-[10px] font-bold text-amber-400">
+              <span>Finestra superiore · Bracciale</span>
+              <span class="text-white">${esc(resolved.braceletTitle)}</span>
+            </div>
+            <img src="${esc(resolved.braceletImages[0])}" alt="${esc(resolved.braceletTitle)}" class="set-half-photo rounded-lg">
+          </div>
+
+          <div class="p-2 space-y-1">
+            <div class="flex items-center justify-between text-[10px] font-bold text-amber-400">
+              <span>Finestra inferiore · Collana</span>
+              <span class="text-white">${esc(resolved.necklaceTitle)}</span>
+            </div>
+            <img src="${esc(resolved.necklaceImages[0])}" alt="${esc(resolved.necklaceTitle)}" class="set-half-photo rounded-lg">
+          </div>
+        </div>
+
+        ${resolved.price ? `<div>Prezzo: <span class="text-white font-semibold">${esc(resolved.price)}</span></div>` : ''}
+        <div class="space-y-1">
+          <div class="text-[11px] font-bold text-white">Componenti per categoria:</div>
+          ${groupedHtml || '<div class="text-white">Nessuno</div>'}
+        </div>
+      `;
+    }
+
+    function openAddSetModal() {
+      if (IS_CLIENT_LOCKED) return;
+      const bracelets = getDisplayCatalogItems('bracciali');
+      const necklaces = getDisplayCatalogItems('collane');
+      if (!bracelets.length || !necklaces.length) {
+        showToast('Servono almeno un bracciale e una collana');
+        return;
+      }
+
+      setCustomTitleTouched = false;
+      document.getElementById('set-modal-heading').textContent = 'Nuovo set';
+      document.getElementById('form-set-id').value = '';
+      document.getElementById('form-set-price').value = '';
+      document.getElementById('btn-delete-set').classList.add('hidden');
+      populateSetSelects(bracelets[0].id, necklaces[0].id);
+      document.getElementById('form-set-title').value = `Set ${bracelets[0].title} + ${necklaces[0].title}`;
+      renderSetAutoPreview();
+
+      const modal = document.getElementById('set-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function openEditSetModal(setId) {
+      if (IS_CLIENT_LOCKED) return;
+      const setObj = appState.items.find(i => i.id === setId && i.category === 'set');
+      if (!setObj) return;
+
+      const resolved = resolveSetItem(setObj);
+      setCustomTitleTouched = true;
+      document.getElementById('set-modal-heading').textContent = 'Modifica set';
+      document.getElementById('form-set-id').value = setObj.id;
+      document.getElementById('form-set-title').value = resolved.title;
+      const rawPrice = String(setObj.price || '').replace(/^€\s*|\s*€$/g, '').trim();
+      document.getElementById('form-set-price').value = /^su richiesta$/i.test(rawPrice) ? '' : rawPrice;
+      document.getElementById('btn-delete-set').classList.remove('hidden');
+      populateSetSelects(setObj.braceletId || '', setObj.necklaceId || '');
+      renderSetAutoPreview();
+
+      const modal = document.getElementById('set-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeSetModal() {
+      const modal = document.getElementById('set-modal');
+      if (!modal) return;
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function saveSetForm(e) {
+      e.preventDefault();
+      if (IS_CLIENT_LOCKED) return;
+
+      const id = document.getElementById('form-set-id').value;
+      const braceletId = document.getElementById('form-set-bracelet').value;
+      const necklaceId = document.getElementById('form-set-necklace').value;
+      const price = formatEuroPrice(document.getElementById('form-set-price').value);
+      const rawTitle = document.getElementById('form-set-title').value.trim();
+
+      if (!braceletId || !necklaceId) return;
+
+      const bItem = appState.items.find(i => i.id === braceletId && i.category === 'bracciali');
+      const nItem = appState.items.find(i => i.id === necklaceId && i.category === 'collane');
+      const title = rawTitle || `Set ${bItem ? bItem.title : 'Bracciale'} + ${nItem ? nItem.title : 'Collana'}`;
+
+      if (id) {
+        const idx = appState.items.findIndex(i => i.id === id);
+        if (idx !== -1) {
+          appState.items[idx] = { ...appState.items[idx], category: 'set', title, braceletId, necklaceId, price };
+        }
+        delete clientDraftSession.setBraceletSlideIndices[id];
+        delete clientDraftSession.setNecklaceSlideIndices[id];
+      } else {
+        appState.items.push({
+          id: 'ryuma-set-' + Date.now(),
+          category: 'set',
+          title,
+          braceletId,
+          necklaceId,
+          price
+        });
+      }
+
+      sortStateCollections();
+      closeSetModal();
+      commitAdminChange(false);
+      renderAdminItemsList();
+      if (currentTab === 'set') renderCatalog();
+      showToast('Set salvato');
+    }
+
+    function deleteCurrentSet() {
+      if (IS_CLIENT_LOCKED) return;
+      const id = document.getElementById('form-set-id').value;
+      if (!id) return;
+      appState.items = appState.items.filter(i => i.id !== id);
+      delete clientDraftSession.setBraceletSlideIndices[id];
+      delete clientDraftSession.setNecklaceSlideIndices[id];
+      sortStateCollections();
+      closeSetModal();
+      commitAdminChange(false);
+      renderAdminItemsList();
+      if (currentTab === 'set') renderCatalog();
+      showToast('Set eliminato');
+    }
+
+    function updateMaterialPreviewUI() {
+      const preview = document.getElementById('form-mat-preview');
+      const placeholder = document.getElementById('form-mat-placeholder');
+      if (!preview || !placeholder) return;
+
+      if (modalMaterialPhoto) {
+        preview.src = modalMaterialPhoto;
+        preview.classList.remove('hidden');
+        placeholder.classList.add('hidden');
+      } else {
+        preview.src = '';
+        preview.classList.add('hidden');
+        placeholder.classList.remove('hidden');
+      }
+    }
+
+    async function handleMaterialPhotoUpload(event) {
+      const file = (event.target.files || [])[0];
+      if (!file) return;
+      const compressed = await compressImageFile(file);
+      if (compressed) {
+        modalMaterialPhoto = compressed;
+        updateMaterialPreviewUI();
+      }
+      event.target.value = '';
+    }
+
+    function toggleMaterialSizesSection() {
+      const typeSelect = document.getElementById('form-mat-type');
+      const sizesBox = document.getElementById('form-mat-sizes-box');
+      if (!typeSelect || !sizesBox) return;
+      sizesBox.classList.toggle('hidden', typeSelect.value === 'cord');
+    }
+
+    function renderMaterialSizeCheckboxes(availableOptions = DEFAULT_COMPONENT_SIZES) {
+      const container = document.getElementById('form-mat-sizes-checkboxes');
+      if (!container) return;
+      const options = Array.isArray(availableOptions) && availableOptions.length
+        ? availableOptions
+        : DEFAULT_COMPONENT_SIZES;
+
+      container.innerHTML = options.map(sz => {
+        const checked = modalMaterialSizes.some(s => s.toLowerCase() === sz.toLowerCase());
+        return `
+          <label class="cursor-pointer select-none flex items-center justify-center gap-1.5 px-2.5 py-2 rounded-xl border text-xs font-bold transition ${checked ? 'bg-amber-400 text-zinc-950 border-amber-400' : 'bg-zinc-900 text-slate-300 border-zinc-700 hover:border-zinc-500'}">
+            <input type="checkbox" value="${esc(sz)}" ${checked ? 'checked' : ''} onchange="toggleDefaultMaterialSize('${esc(sz)}', this.checked)" class="sr-only">
+            <span class="w-4 h-4 rounded flex items-center justify-center text-[10px] font-bold border ${checked ? 'bg-zinc-950 text-amber-400 border-zinc-950' : 'bg-zinc-950 text-transparent border-zinc-600'}">
+              ✓
+            </span>
+            <span>${renderSizeWithUnitMm(sz)}</span>
+          </label>
+        `;
+      }).join('');
+    }
+
+    function toggleDefaultMaterialSize(sz, isChecked) {
+      if (isChecked) {
+        if (!modalMaterialSizes.some(s => s.toLowerCase() === sz.toLowerCase())) {
+          modalMaterialSizes.push(sz);
+        }
+      } else {
+        modalMaterialSizes = modalMaterialSizes.filter(s => s.toLowerCase() !== sz.toLowerCase());
+      }
+      modalMaterialSizes.sort(compareSizesAsc);
+      const currentOptions = Array.from(document.querySelectorAll('#form-mat-sizes-checkboxes input[type="checkbox"]'))
+        .map(cb => cb.value);
+      renderMaterialSizeCheckboxes(currentOptions.length ? currentOptions : DEFAULT_COMPONENT_SIZES);
+    }
+
+    function openAddMaterialModal(fromPicker = false, defaultType = 'stones') {
+      if (IS_CLIENT_LOCKED) return;
+      returnToItemModalAfterMaterial = fromPicker;
+      const chosenType = normalizeMaterialType(defaultType);
+      document.getElementById('material-modal-heading').textContent = 'Nuovo componente';
+      document.getElementById('form-mat-id').value = '';
+      document.getElementById('form-mat-name').value = '';
+      document.getElementById('form-mat-type').value = chosenType;
+      document.getElementById('btn-delete-material').classList.add('hidden');
+      modalMaterialPhoto = '';
+      modalMaterialSizes = chosenType === 'cord' ? [] : ['8 mm'];
+      updateMaterialPreviewUI();
+      toggleMaterialSizesSection();
+      renderMaterialSizeCheckboxes(DEFAULT_COMPONENT_SIZES);
+
+      const modal = document.getElementById('material-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function openEditMaterialModal(matId) {
+      if (IS_CLIENT_LOCKED) return;
+      const mat = getMaterialById(matId);
+      if (!mat) return;
+      returnToItemModalAfterMaterial = false;
+      const type = normalizeMaterialType(mat.type);
+      document.getElementById('material-modal-heading').textContent = 'Modifica componente';
+      document.getElementById('form-mat-id').value = mat.id;
+      document.getElementById('form-mat-name').value = mat.name || '';
+      document.getElementById('form-mat-type').value = type;
+      document.getElementById('btn-delete-material').classList.remove('hidden');
+      modalMaterialPhoto = mat.image || '';
+      modalMaterialSizes = type === 'cord'
+        ? []
+        : (Array.isArray(mat.sizes) && mat.sizes.length ? [...mat.sizes].sort(compareSizesAsc) : ['8 mm']);
+      updateMaterialPreviewUI();
+      toggleMaterialSizesSection();
+      renderMaterialSizeCheckboxes(getMaterialAvailableSizeOptions(mat));
+
+      const modal = document.getElementById('material-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeMaterialModal() {
+      const modal = document.getElementById('material-modal');
+      if (!modal) return;
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      returnToItemModalAfterMaterial = false;
+    }
+
+    function saveMaterialForm(e) {
+      e.preventDefault();
+      if (IS_CLIENT_LOCKED) return;
+
+      const id = document.getElementById('form-mat-id').value;
+      const name = document.getElementById('form-mat-name').value.trim();
+      const type = normalizeMaterialType(document.getElementById('form-mat-type').value);
+      if (!name) return;
+
+      let sizes = [];
+      if (type !== 'cord') {
+        if (!modalMaterialSizes.length) {
+          showToast('Seleziona almeno una misura');
+          return;
+        }
+        sizes = normalizeDefaultSizesList(modalMaterialSizes);
+      }
+
+      const image = modalMaterialPhoto || `https://placehold.co/600x450/18181b/fbbf24?text=${encodeURIComponent(name)}`;
+
+      if (id) {
+        const idx = appState.materials.findIndex(m => m.id === id);
+        if (idx !== -1) {
+          appState.materials[idx] = { ...appState.materials[idx], name, type, sizes, image };
+        }
+      } else {
+        appState.materials.push({
+          id: 'mat-' + Date.now(),
+          name,
+          type,
+          sizes,
+          image
+        });
+      }
+
+      sortStateCollections();
+      const keepPickerOpen = returnToItemModalAfterMaterial;
+      closeMaterialModal();
+      commitAdminChange(false);
+      renderAdminMaterialsList();
+      if (currentTab === 'materiali') renderMaterials();
+      if (keepPickerOpen) {
+        activePickerCategory = type;
+        activePickerSizeKey = sizes[0] || '';
+        renderMaterialPickerUI();
+      }
+      showToast('Componente salvato');
+    }
+
+    function deleteCurrentMaterial() {
+      if (IS_CLIENT_LOCKED) return;
+      const id = document.getElementById('form-mat-id').value;
+      if (!id) return;
+      appState.materials = appState.materials.filter(m => m.id !== id);
+      appState.items.forEach(item => {
+        if (Array.isArray(item.composition)) {
+          item.composition = item.composition.filter(c => !(c.kind === 'component' && c.materialId === id));
+        }
+      });
+      sortStateCollections();
+      closeMaterialModal();
+      commitAdminChange(false);
+      renderAdminMaterialsList();
+      if (currentTab === 'materiali') renderMaterials();
+      showToast('Componente eliminato');
+    }
+
+    function escapeJsonForScriptTag(jsonText) {
+      return String(jsonText || '').replace(/<\/script/gi, '<\\/script');
+    }
+
+    function getCleanExportPayload() {
+      if (isAdminAuthoringActive()) {
+        syncAdminDraftInputsToState();
+      }
+      return cloneStatePayload();
+    }
+
+    function buildExportHtml(clientMode, explicitPayload = null) {
+      const exportPayload = explicitPayload || getCleanExportPayload();
+      const serializedJson = escapeJsonForScriptTag(JSON.stringify(exportPayload, null, 2));
+
+      const clonedDoc = document.documentElement.cloneNode(true);
+      clonedDoc.querySelectorAll('[data-bard-client-injected="true"]').forEach(el => el.remove());
+
+      if (clientMode) {
+        clonedDoc.setAttribute('data-ryuma-client', 'true');
+      } else {
+        clonedDoc.removeAttribute('data-ryuma-client');
+      }
+
+      const dataScript = clonedDoc.querySelector('#ryuma-data');
+      if (dataScript) {
+        dataScript.textContent = `\n${serializedJson}\n  `;
+      }
+
+      ['#custom-size', '#custom-bracelet-size', '#custom-necklace-size', '#custom-notes', '#detail-size-input', '#detail-bracelet-size-input', '#detail-necklace-size-input'].forEach(sel => {
+        const inputEl = clonedDoc.querySelector(sel);
+        if (inputEl) {
+          inputEl.setAttribute('value', '');
+          if (inputEl.tagName === 'TEXTAREA') inputEl.textContent = '';
+        }
+      });
+      ['#custom-selected-materials', '#comp-modal-list', '#detail-thumbs', '#detail-set-bracelet-thumbs', '#detail-set-necklace-thumbs'].forEach(sel => {
+        const boxEl = clonedDoc.querySelector(sel);
+        if (boxEl) boxEl.innerHTML = '';
+      });
+
+      if (clientMode) {
+        [
+          '#admin-icon-bar',
+          '#admin-auth-modal',
+          '#admin-page',
+          '#item-modal',
+          '#set-modal',
+          '#material-modal'
+        ].forEach(sel => {
+          const el = clonedDoc.querySelector(sel);
+          if (el) el.remove();
+        });
+        const clientNav = clonedDoc.querySelector('#client-nav');
+        const homeView = clonedDoc.querySelector('#home-view');
+        if (clientNav) clientNav.classList.remove('hidden');
+        if (homeView) homeView.classList.remove('hidden');
+      } else {
+        const unlockBtn = clonedDoc.querySelector('#btn-admin-unlock');
+        const authBar = clonedDoc.querySelector('#admin-authenticated-controls');
+        const authModal = clonedDoc.querySelector('#admin-auth-modal');
+        const btnEdit = clonedDoc.querySelector('#btn-edit-mode');
+        const iconPencil = clonedDoc.querySelector('#icon-edit-pencil');
+        const iconDone = clonedDoc.querySelector('#icon-edit-done');
+        const clientNav = clonedDoc.querySelector('#client-nav');
+        const homeView = clonedDoc.querySelector('#home-view');
+        const adminPage = clonedDoc.querySelector('#admin-page');
+
+        if (unlockBtn) unlockBtn.classList.remove('hidden');
+        if (authBar) {
+          authBar.classList.add('hidden');
+          authBar.classList.remove('flex');
+        }
+        if (authModal) {
+          authModal.classList.add('hidden');
+          authModal.classList.remove('flex');
+        }
+        if (btnEdit) {
+          btnEdit.classList.add('bg-zinc-900', 'text-amber-400', 'border-amber-400/70');
+          btnEdit.classList.remove('bg-amber-400', 'text-zinc-950', 'border-amber-400');
+        }
+        if (iconPencil) iconPencil.classList.remove('hidden');
+        if (iconDone) iconDone.classList.add('hidden');
+        if (clientNav) clientNav.classList.remove('hidden');
+        if (homeView) homeView.classList.remove('hidden');
+        if (adminPage) adminPage.classList.add('hidden');
+      }
+
+      ['#catalog-grid', '#materials-grid', '#admin-items-list', '#admin-materials-list'].forEach(sel => {
+        const el = clonedDoc.querySelector(sel);
+        if (el) el.innerHTML = '';
+      });
+
+      return '<!DOCTYPE html>\n' + clonedDoc.outerHTML;
+    }
+
+    function downloadHtmlFile(filename, content) {
+      const blob = new Blob([content], { type: 'text/html;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+
+    function saveAdminVersion() {
+      if (IS_CLIENT_LOCKED || !isAdminAuthenticated) return;
+      if (isAdminAuthoringActive()) {
+        commitAdminChange(false);
+      }
+      const payload = getCleanExportPayload();
+      downloadHtmlFile('ryuma_admin.html', buildExportHtml(false, payload));
+      showToast('Versione Admin salvata e scaricata');
+    }
+
+    function saveClientVersion() {
+      if (IS_CLIENT_LOCKED || !isAdminAuthenticated) return;
+      if (isAdminAuthoringActive()) {
+        commitAdminChange(false);
+      }
+      const payload = getCleanExportPayload();
+      downloadHtmlFile('ryuma_catalogo.html', buildExportHtml(true, payload));
+      showToast('Catalogo cliente salvato come ryuma_catalogo.html');
+    }
+
+    window.addEventListener('pagehide', () => {
+      if (!IS_CLIENT_LOCKED && isAdminAuthoringActive()) {
+        commitAdminChange(true);
+      }
+    });
+
+    window.addEventListener('beforeunload', () => {
+      if (!IS_CLIENT_LOCKED && isAdminAuthoringActive()) {
+        commitAdminChange(true);
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadInitialData();
+      const customNotesEl = document.getElementById('custom-notes');
+      if (customNotesEl) {
+        customNotesEl.addEventListener('input', () => {
+          clientDraftSession.customNotesTouched = true;
+          clientDraftSession.customNotes = customNotesEl.value;
+        });
+      }
+      updateAdminControlsVisibility();
+      renderHeaderAndIntro();
+      selectTab('bracciali');
+    });
+  </script>
+
+</body></html>
